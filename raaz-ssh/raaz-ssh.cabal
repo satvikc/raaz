@@ -27,9 +27,16 @@ source-repository head
 
 library
   exposed-modules: Raaz.Network.SSH.Transport
+                 , Raaz.Network.SSH.Naming
   other-modules: Paths_raaz_ssh
   build-depends: base                           >= 4.5 && < 4.8
                , bytestring                     >= 0.9 && < 0.11
+               --
+               -- Raaz dependencies
+               --
+               , raaz-primitives                >=0.0.0.1 && < 0.0.0.2
+               , raaz-hash                      >=0.0.0.1 && < 0.0.0.2
+               , raaz-cipher                    >=0.0.0.1 && < 0.0.0.2
 
 test-Suite tests
   type: exitcode-stdio-1.0
