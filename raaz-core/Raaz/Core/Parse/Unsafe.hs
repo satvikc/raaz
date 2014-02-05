@@ -10,18 +10,23 @@ module Raaz.Core.Parse.Unsafe
        ( Parser, parse, parseStorable, parseByteString
        , runParser
        , runParser'
+         -- * Specialized functions endiansafe parsing.
+       , parseByte, parseWord32BE, parseWord64BE, parseWord32LE, parseWord64LE
+         -- * Specialized functions for parsing using `Storable` instance.
+       , parseByte', parseWord32BE', parseWord64BE', parseWord32LE', parseWord64LE'
        ) where
 
-import Control.Applicative         ( (<$>)          )
+import Control.Applicative        ((<$>))
 import Control.Monad.State.Strict
-import Data.ByteString             ( ByteString     )
-import Foreign.ForeignPtr.Safe     ( withForeignPtr )
-import Foreign.Ptr                 ( castPtr, Ptr   )
+import Data.Word
+import Data.ByteString            (ByteString)
+import Foreign.ForeignPtr.Safe    (withForeignPtr)
+import Foreign.Ptr                (castPtr, Ptr)
 import Foreign.Storable
 
 import Raaz.Core.Types
 import Raaz.Core.Util.Ptr
-import Raaz.Core.Util.ByteString        ( createFrom )
+import Raaz.Core.Util.ByteString        (createFrom)
 
 -- | A simple parser.
 type Parser = StateT CryptoPtr IO
@@ -62,3 +67,44 @@ parseByteString l = do bs <- getPtr >>= lift . getBS
                        return bs
   where bytes = roundFloor l :: BYTES Int
         getBS = createFrom $ fromIntegral bytes
+
+-- | Parse `Word8` (Byte)
+parseByte :: Parser Word8
+parseByte = parseStorable
+
+-- | Parse `Word32BE` in endiansafe way.
+parseWord32BE :: Parser Word32BE
+parseWord32BE = parse
+
+-- | Parse `Word64BE` in endiansafe way.
+parseWord64BE :: Parser Word64BE
+parseWord64BE = parse
+
+-- | Parse `Word32LE` in endiansafe way.
+parseWord32LE :: Parser Word32LE
+parseWord32LE = parse
+
+-- | Parse `Word64LE` in endiansafe way.
+parseWord64LE :: Parser Word64LE
+parseWord64LE = parse
+
+-- | Parse `Word32BE` using `Storable`.
+parseWord32BE' :: Parser Word32BE
+parseWord32BE' = parseStorable
+
+-- | Same as `parseByte`. Provided just for completeness as
+-- endianness have no effect on parsing of bytes.
+parseByte' :: Parser Word8
+parseByte' = parseByte
+
+-- | Parse `Word64BE` using `Storable`.
+parseWord64BE' :: Parser Word64BE
+parseWord64BE' = parseStorable
+
+-- | Parse `Word32LE` using `Storable`.
+parseWord32LE' :: Parser Word32LE
+parseWord32LE' = parseStorable
+
+-- | Parse `Word64LE` using `Storable`.
+parseWord64LE' :: Parser Word64LE
+parseWord64LE' = parseStorable
