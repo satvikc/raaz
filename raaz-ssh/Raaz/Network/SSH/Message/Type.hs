@@ -1,104 +1,94 @@
-module Raaz.Network.SSH.Message.Type where
+ module Raaz.Network.SSH.Message.Type where
 
 import Data.ByteString.Char8 (ByteString)
+import Data.Text
 
 import Raaz.Types
 
 -- | Types of messages
-data Message = Trans    Transport
-             | Auth     Authentication
-             | Connect  Connection
-             | Client   ClientProtocol
-             | Ext      Extension
+data Message =
+              -- | Transport Layer
+               Disconnect DisconnectReason Description
+             | Ignore ByteString
+               -- | Unimplemented response with packet sequence number
+             | Unimplemented Word32BE
+               -- | Debug message. Bool specifies whether to display
+               -- debug information to client or not.
+             | Debug Bool Description
+             | ServiceRequest Service
+             | ServiceAccept Service
+             | Kexinit { kexinit_cookie          :: ByteString  -- ^ Random cookie of 16 Bytes
+                       , kexinit_keyexhange      :: NameList    -- ^ Key Exchange Algorithms
+                       , kexinit_hostkey         :: NameList    -- ^ Server Host Key Algorithms
+                       , kexinit_encryption_c2s  :: NameList    -- ^ Encryption Algorithms for Client to Server
+                       , kexinit_encryption_s2c  :: NameList    -- ^ Encryption Algorithms for Server to Client
+                       , kexinit_mac_c2s         :: NameList    -- ^ MAC algorithms for Client to Server
+                       , kexinit_mac_s2c         :: NameList    -- ^ MAC algorithms for Server to Client
+                       , kexinit_compression_c2s :: NameList    -- ^ Compression algorithms for Client to Server
+                       , kexinit_compression_s2c :: NameList    -- ^ Compression algorithms for Server to Client
+                       , kexinit_language_c2s    :: NameList    -- ^ Languages algorithms for Client to Server
+                       , kexinit_language_s2c    :: NameList    -- ^ Languages algorithms for Server to Client
+                       , kexinit_guessed         :: Bool        -- ^ Guessed Key Exchange Packet follows
+                       }
+               -- | Sent when key exchange is successful
+             | Newkeys
 
--- | Standard Transport Layer Messages
-data Transport = Disconnect DisconnectReason Description
-               | Ignore ByteString
-                 -- | Unimplemented response with packet sequence number
-               | Unimplemented Word32BE
-                 -- | Debug message. Bool specifies whether to display
-                 -- debug information to client or not.
-               | Debug Bool Description
-               | ServiceRequest Service
-               | ServiceAccept Service
-               | Kexinit { kexinit_cookie          :: ByteString  -- ^ Random cookie of 16 Bytes
-                         , kexinit_keyexhange      :: NameList    -- ^ Key Exchange Algorithms
-                         , kexinit_hostkey         :: NameList    -- ^ Server Host Key Algorithms
-                         , kexinit_encryption_c2s  :: NameList    -- ^ Encryption Algorithms for Client to Server
-                         , kexinit_encryption_s2c  :: NameList    -- ^ Encryption Algorithms for Server to Client
-                         , kexinit_mac_c2s         :: NameList    -- ^ MAC algorithms for Client to Server
-                         , kexinit_mac_s2c         :: NameList    -- ^ MAC algorithms for Server to Client
-                         , kexinit_compression_c2s :: NameList    -- ^ Compression algorithms for Client to Server
-                         , kexinit_compression_s2c :: NameList    -- ^ Compression algorithms for Server to Client
-                         , kexinit_language_c2s    :: NameList    -- ^ Languages algorithms for Client to Server
-                         , kexinit_language_s2c    :: NameList    -- ^ Languages algorithms for Server to Client
-                         , kexinit_guessed         :: Bool        -- ^ Guessed Key Exchange Packet follows
-                         }
-                 -- | Sent when key exchange is successful
-               | Newkeys
+               -- Authentication Layer
 
--- | Standard Authentication Layer Messages
-data Authentication = Request { auth_username :: Text
-                              , auth_service  :: Service
-                              , auth_method   :: AuthMethod
-                              }
-                      -- | Authentications that can continue. Bool specifies partial success.
-                    | Failure NameList Bool
-                      -- | Authentication Success
-                    | Success
-                      -- | Banner text to be displayed to the Client before authentication
-                    | Banner Description
+             | Request { auth_username :: Text
+                       , auth_service  :: Service
+                       , auth_method   :: AuthMethod
+                       }
+               -- | Authentications that can continue. Bool specifies partial success.
+             | Failure NameList Bool
+               -- | Authentication Success
+             | Success
+               -- | Banner text to be displayed to the Client before authentication
+             | Banner Description
 
--- | Standard Connection Layer Messages
-data Connection =
-    -- | Global request. Bool specifies if reply needed or not.
-    GlobalRequest GlobalRequestType Bool
-    -- | Global request success
-  | RequestSuccess GlobalRequestSuccessData
-    -- | Global request failure
-  | RequestFailure
-  | ChannelOpen { open_type   :: ChannelType
-                , open_sender :: ChannelID
-                , open_window :: Word32BE
-                , open_packet :: Word32BE
-                }
-  | ChannelOpenConfirmation { conf_recipient :: ChannelID
-                            , conf_sender    :: ChannelID
-                            , conf_window    :: Word32BE
-                            , conf_packet    :: Word32BE
-                            , conf_data      :: ConfirmationData
-                            }
-  | ChannelOpenFailure ChannelID ChannelOpenFailureReason Description
-    -- | Channel Id and Bytes to add
-  | ChannelWindowAdjust ChannelID Word32BE
-    -- | Channel Id and data to send
-  | ChannelData ChannelID ByteString
-    -- | Extended data over a channel
-  | ChannelExtendedData ChannelID ExtendedDataType ByteString
-    -- | Channel EOF
-  | ChannelEOF ChannelID
-    -- | Channel Close
-  | ChannelClose ChannelID
-    -- | Channel request with id and type. Bool specifies if reply is needed or not.
-  | ChannelRequest ChannelID ChannelRequestType Bool
-    -- | Request success
-  | ChannelSuccess ChannelID
-    -- | Request Failure
-  | ChannelFailure ChannelID
+               -- Connection Layer
 
--- | Client Protocol Messages (/Unimplemented/)
-data ClientProtocol = ClientProtocol
-
--- | Message Extensions (/Unimplemented/)
-data Extension = Extension
+               -- | Global request. Bool specifies if reply needed or not.
+             | GlobalRequest Bool GlobalRequestType
+               -- | Global request success
+             | RequestSuccess GlobalRequestSuccessData
+               -- | Global request failure
+             | RequestFailure
+             | ChannelOpen { open_sender :: ChannelID
+                           , open_window :: Word32BE
+                           , open_packet :: Word32BE
+                           , open_type   :: ChannelType
+                           }
+             | ChannelOpenConfirmation { conf_recipient :: ChannelID
+                                       , conf_sender    :: ChannelID
+                                       , conf_window    :: Word32BE
+                                       , conf_packet    :: Word32BE
+                                       , conf_data      :: ConfirmationData
+                                       }
+             | ChannelOpenFailure ChannelID ChannelOpenFailureReason Description
+               -- | Channel Id and Bytes to add
+             | ChannelWindowAdjust ChannelID Word32BE
+               -- | Channel Id and data to send
+             | ChannelData ChannelID ByteString
+               -- | Extended data over a channel
+             | ChannelExtendedData ChannelID ExtendedDataType ByteString
+               -- | Channel EOF
+             | ChannelEOF ChannelID
+               -- | Channel Close
+             | ChannelClose ChannelID
+               -- | Channel request with id and type. Bool specifies if reply is needed or not.
+             | ChannelRequest ChannelID ChannelRequestType Bool
+               -- | Request success
+             | ChannelSuccess ChannelID
+               -- | Request Failure
+             | ChannelFailure ChannelID
 
 -- | Services
 data Service = Userauth
              | Connection
 
-
 -- | User Authentication Methods
-data AuthMethod = Publickey { pubkey_name      :: ByteString
+data AuthMethod = PublicKey { pubkey_name      :: ByteString
                             , pubkey_blob      :: ByteString
                             , pubkey_signature :: (Maybe ByteString)
                             }
@@ -127,8 +117,8 @@ data GlobalRequestType = TCPIPForward ByteString Word32BE       -- ^ Address and
                        | CancelTCPIPForward ByteString Word32BE -- ^ Address and port
 
 -- | Global Request Succest Data
-data GlobalRequestSuccessData = NoSuccessData -- ^ No data
-                              | Word32BE      -- ^ TCP port allocated at server
+data GlobalRequestSuccessData = NoSuccessData         -- ^ No data
+                             | SuccessPort Word32BE  -- ^ TCP port allocated at server
 
 -- | Channel Types
 data ChannelType = Session
@@ -197,12 +187,65 @@ data DisconnectReason = HostNotAllowedToConnect
                       | NoMoreAuthMethodsAvailable
                       | IllegalUserName
 
+instance Bounded DisconnectReason where
+  minBound = HostNotAllowedToConnect
+  maxBound = IllegalUserName
+
+instance Enum DisconnectReason where
+  toEnum 1  = HostNotAllowedToConnect
+  toEnum 2  = ProtocolError
+  toEnum 3  = KeyExchangeFailed
+  toEnum 4  = Reserved
+  toEnum 5  = MacError
+  toEnum 6  = CompressionError
+  toEnum 7  = ServiceNotAvailable
+  toEnum 8  = ProtocolVersionNotSupported
+  toEnum 9  = HostKeyNotVerifiable
+  toEnum 10 = ConnectionLost
+  toEnum 11 = ByApplication
+  toEnum 12 = TooManyConnections
+  toEnum 13 = AuthCancelledByUser
+  toEnum 14 = NoMoreAuthMethodsAvailable
+  toEnum 15 = IllegalUserName
+  toEnum _  = error "Unknown Disconnect Reason"
+  fromEnum HostNotAllowedToConnect = 1
+  fromEnum ProtocolError = 2
+  fromEnum KeyExchangeFailed = 3
+  fromEnum Reserved = 4
+  fromEnum MacError = 5
+  fromEnum CompressionError = 6
+  fromEnum ServiceNotAvailable = 7
+  fromEnum ProtocolVersionNotSupported = 8
+  fromEnum HostKeyNotVerifiable = 9
+  fromEnum ConnectionLost = 10
+  fromEnum ByApplication = 11
+  fromEnum TooManyConnections = 12
+  fromEnum AuthCancelledByUser = 13
+  fromEnum NoMoreAuthMethodsAvailable = 14
+  fromEnum IllegalUserName = 15
+
+
 -- | Channel Open Failure Reasons
 data ChannelOpenFailureReason = AdministrativelyProhibited
                               | ConnectFailed
                               | UnknownChannelType
                               | ResourceShortage
 
+
+instance Bounded ChannelOpenFailureReason where
+  minBound = AdministrativelyProhibited
+  maxBound = ResourceShortage
+
+instance Enum ChannelOpenFailureReason where
+  toEnum 1  = AdministrativelyProhibited
+  toEnum 2  = ConnectFailed
+  toEnum 3  = UnknownChannelType
+  toEnum 4  = ResourceShortage
+  toEnum _  = error "Unknown Channel Failure Reason"
+  fromEnum AdministrativelyProhibited = 1
+  fromEnum ConnectFailed              = 2
+  fromEnum UnknownChannelType         = 3
+  fromEnum ResourceShortage           = 4
 
 -- | Channel Extended Data Types
 data ExtendedDataType = Stderr
@@ -224,8 +267,6 @@ data SignalName = ABRT
 
 -- | Encoded Description in ISO-10646 UTF-8 encoding (TODO) along with Language tag
 data Description = Description Text ByteString
-
-data Text = Text
 
 type NameList = [ByteString]
 
