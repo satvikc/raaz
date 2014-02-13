@@ -5,6 +5,93 @@ import Data.Text
 
 import Raaz.Types
 
+-- | Message Id's
+data MessageID = DISCONNECT
+               | IGNORE
+               | UNIMPLEMENTED
+               | DEBUG
+               | SERVICEREQUEST
+               | SERVICEACCEPT
+               | KEXINIT
+               | NEWKEYS
+               | REQUEST
+               | FAILURE
+               | SUCCESS
+               | BANNER
+               | GLOBALREQUEST
+               | REQUESTSUCCESS
+               | REQUESTFAILURE
+               | CHANNELOPEN
+               | CHANNELOPENCONFIRMATION
+               | CHANNELOPENFAILURE
+               | CHANNELWINDOWADJUST
+               | CHANNELDATA
+               | CHANNELEXTENDEDDATA
+               | CHANNELEOF
+               | CHANNELCLOSE
+               | CHANNELREQUEST
+               | CHANNELSUCCESS
+               | CHANNELFAILURE
+
+instance Bounded MessageID where
+  minBound = DISCONNECT
+  maxBound = CHANNELFAILURE
+
+instance Enum MessageID where
+  toEnum 1   = DISCONNECT
+  toEnum 2   = IGNORE
+  toEnum 3   = UNIMPLEMENTED
+  toEnum 4   = DEBUG
+  toEnum 5   = SERVICEREQUEST
+  toEnum 6   = SERVICEACCEPT
+  toEnum 20  = KEXINIT
+  toEnum 21  = NEWKEYS
+  toEnum 50  = REQUEST
+  toEnum 51  = FAILURE
+  toEnum 52  = SUCCESS
+  toEnum 53  = BANNER
+  toEnum 80  = GLOBALREQUEST
+  toEnum 81  = REQUESTSUCCESS
+  toEnum 82  = REQUESTFAILURE
+  toEnum 90  = CHANNELOPEN
+  toEnum 91  = CHANNELOPENCONFIRMATION
+  toEnum 92  = CHANNELOPENFAILURE
+  toEnum 93  = CHANNELWINDOWADJUST
+  toEnum 94  = CHANNELDATA
+  toEnum 95  = CHANNELEXTENDEDDATA
+  toEnum 96  = CHANNELEOF
+  toEnum 97  = CHANNELCLOSE
+  toEnum 98  = CHANNELREQUEST
+  toEnum 99  = CHANNELSUCCESS
+  toEnum 100 = CHANNELFAILURE
+  toEnum _   = error "Unknown Channel Message Id"
+  fromEnum DISCONNECT              = 1
+  fromEnum IGNORE                  = 2
+  fromEnum UNIMPLEMENTED           = 3
+  fromEnum DEBUG                   = 4
+  fromEnum SERVICEREQUEST          = 5
+  fromEnum SERVICEACCEPT           = 6
+  fromEnum KEXINIT                 = 20
+  fromEnum NEWKEYS                 = 21
+  fromEnum REQUEST                 = 50
+  fromEnum FAILURE                 = 51
+  fromEnum SUCCESS                 = 52
+  fromEnum BANNER                  = 53
+  fromEnum GLOBALREQUEST           = 80
+  fromEnum REQUESTSUCCESS          = 81
+  fromEnum REQUESTFAILURE          = 82
+  fromEnum CHANNELOPEN             = 90
+  fromEnum CHANNELOPENCONFIRMATION = 91
+  fromEnum CHANNELOPENFAILURE      = 92
+  fromEnum CHANNELWINDOWADJUST     = 93
+  fromEnum CHANNELDATA             = 94
+  fromEnum CHANNELEXTENDEDDATA     = 95
+  fromEnum CHANNELEOF              = 96
+  fromEnum CHANNELCLOSE            = 97
+  fromEnum CHANNELREQUEST          = 98
+  fromEnum CHANNELSUCCESS          = 99
+  fromEnum CHANNELFAILURE          = 100
+
 -- | Types of messages
 data Message =
               -- | Transport Layer
