@@ -51,13 +51,14 @@ idString' comment = C8.concat [ idPrefix, " ", comment, "\r\n"]
 -- | Performs the MAC verification and decryption and returns the
 -- payload as a `ByteString`.
 receivePayload :: Context -> IO ByteString
-receivePayload (Context buff sock _ decr _) = do
-  (packLen,padLen) <- withBuffer buff $ decrypt decr
-  ok <- withBuffer buff verify
-  if ok
-    then withBuffer buff $ createFrom (packLen - padLen - 1) . (`movePtr` headerSize)
-    else throwIO $ TransportE MACFailure
+receivePayload (Context buff sock _ decr _) = withBuffer buff process
   where
+    process buffptr = do
+      (packLen,padLen) <- decrypt decr buffptr
+      ok <- verify buffptr
+      if ok
+        then createFrom (packLen - padLen - 1) $ (buffptr `movePtr` headerSize)
+        else throwIO $ TransportE MACFailure
     -- Verify MAC
     verify = undefined
     -- Decrypt and return (packet length, padding length)
