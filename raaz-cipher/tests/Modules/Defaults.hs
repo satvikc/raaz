@@ -1,24 +1,26 @@
 {-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE TypeFamilies     #-}
+{-# LANGUAGE DataKinds        #-}
 
 module Modules.Defaults where
 
-import           Data.ByteString        (ByteString,pack)
-import qualified Data.ByteString        as BS
+import           Data.ByteString          (ByteString,pack)
+import qualified Data.ByteString          as BS
 import           Data.Typeable
 
-import           Test.Framework         (Test,testGroup)
+import           Test.Framework           (Test,testGroup)
 
-import           Raaz.Test              ()
+import           Raaz.Test                ()
 import           Raaz.Test.Cipher
-import           Raaz.Test.Gadget       (testGadget)
+import           Raaz.Test.Gadget         (testGadget)
 import           Raaz.Primitives
 import           Raaz.Primitives.Cipher
-
+import           Raaz.Util.Proxy
 
 import           Raaz.Cipher.AES.Type
+import           Raaz.Cipher.AES.Internal
 
-import           Modules.Block.Ref      ()
+import           Modules.Block.Ref        ()
 
 
 testKey128 :: ByteString
@@ -90,16 +92,16 @@ testsDefault m s128 s192 s256 =
       , testGroup ("AES256 " ++ mode ++ " CPortable vs Reference") $ cportableVsReference (pr256 m) (pc256 m) testKey256
       ]
       where
-        pr128 :: m -> Ref128 m Encryption
+        pr128 :: Proxy m -> Ref128 m Encryption
         pr128 _ = undefined
-        pr192 :: m -> Ref192 m Encryption
+        pr192 :: Proxy m -> Ref192 m Encryption
         pr192 _ = undefined
-        pr256 :: m -> Ref256 m Encryption
+        pr256 :: Proxy m -> Ref256 m Encryption
         pr256 _ = undefined
-        pc128 :: m -> CPortable128 m Encryption
+        pc128 :: Proxy m -> CPortable128 m Encryption
         pc128 _ = undefined
-        pc192 :: m -> CPortable192 m Encryption
+        pc192 :: Proxy m -> CPortable192 m Encryption
         pc192 _ = undefined
-        pc256 :: m -> CPortable256 m Encryption
+        pc256 :: Proxy m -> CPortable256 m Encryption
         pc256 _ = undefined
-        mode = show $ typeOf m
+        mode = show $ modeRep m

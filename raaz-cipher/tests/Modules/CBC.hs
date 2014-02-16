@@ -1,13 +1,15 @@
+{-# LANGUAGE DataKinds #-}
 module Modules.CBC
        ( tests
        ) where
 
-import Data.ByteString               (ByteString,pack)
-import Test.Framework                (Test)
+import Data.ByteString        (ByteString,pack)
+import Test.Framework         (Test)
 
 import Raaz.Primitives.Cipher
-import Raaz.Cipher.AES.Type
+import Raaz.Util.Proxy
 
+import Raaz.Cipher.AES.Type
 import Raaz.Cipher.AES.CBC
 
 import Modules.Defaults
@@ -75,4 +77,4 @@ standard256Vector =
   ]
 
 tests :: [Test]
-tests = testsDefault (undefined :: CBC) standard128Vector standard192Vector standard256Vector
+tests = testsDefault (Proxy :: Proxy CBC) standard128Vector standard192Vector standard256Vector

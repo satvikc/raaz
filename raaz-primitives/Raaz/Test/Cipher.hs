@@ -4,6 +4,7 @@ Generic tests for Hash implementations.
 
 -}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE DataKinds        #-}
 
 module Raaz.Test.Cipher
        ( testStandardCiphers
@@ -19,7 +20,6 @@ import           Test.HUnit                     ((~?=), test, (~:) )
 import           Test.Framework.Providers.HUnit (hUnitTestToTests)
 
 import           Raaz.ByteSource
-import           Raaz.Memory
 import           Raaz.Types
 import           Raaz.Primitives
 import           Raaz.Primitives.Cipher

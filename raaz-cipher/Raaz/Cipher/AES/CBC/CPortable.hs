@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleInstances        #-}
 {-# LANGUAGE TypeFamilies             #-}
 {-# OPTIONS_GHC -fno-warn-orphans     #-}
+{-# LANGUAGE DataKinds                #-}
 
 module Raaz.Cipher.AES.CBC.CPortable () where
 
