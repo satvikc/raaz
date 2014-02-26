@@ -6,6 +6,7 @@ Standard naming for primitives required while algorithm negotiation.
 
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE FlexibleInstances  #-}
+{-# LANGUAGE DataKinds          #-}
 module Raaz.Network.SSH.Naming
        ( MethodName(..)
          -- | Hash Primitives (which are just `undefined` with the correct type)
