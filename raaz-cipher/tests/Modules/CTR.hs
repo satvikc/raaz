@@ -4,14 +4,13 @@ module Modules.CTR
        ) where
 
 
-import Data.ByteString        (ByteString,pack)
-import Test.Framework         (Test)
+import Data.ByteString          (ByteString,pack)
+import Test.Framework           (Test)
 
 import Raaz.Primitives.Cipher
-import Raaz.Util.Proxy
 
-import Raaz.Cipher.AES.Type
-import Raaz.Cipher.AES.CTR
+import Raaz.Cipher.AES.Internal
+import Raaz.Cipher.AES.CTR      ()
 
 import Modules.Defaults
 
@@ -60,4 +59,4 @@ standard256Vector =
 
 
 tests :: [Test]
-tests = testsDefault (Proxy :: Proxy CTR) standard128Vector standard192Vector standard256Vector
+tests = testsDefault (ProxyMode :: ProxyMode CTR) standard128Vector standard192Vector standard256Vector

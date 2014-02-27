@@ -8,6 +8,7 @@ using them.
 
 module Raaz.Test.EndianStore
        ( testStoreLoad
+       , testStorablePrimitive
        ) where
 
 import Data.Typeable
@@ -18,6 +19,7 @@ import Test.Framework.Providers.QuickCheck2(testProperty)
 import Test.QuickCheck(Property, Arbitrary)
 import Test.QuickCheck.Monadic(run, assert, monadicIO)
 
+import Raaz.Primitives
 import Raaz.Types( cryptoAlignment, EndianStore(..))
 
 
@@ -64,3 +66,15 @@ testStoreLoad :: ( EndianStore a
 testStoreLoad a = testProperty (aType ++ ": Store/Load ")
                                $ prop_StoreLoad a
      where aType = show $ typeOf a
+
+testStorablePrimitive :: ( EndianStore p
+                         , Eq p
+                         , Show p
+                         , Arbitrary p
+                         , Primitive p
+                         )
+                      => p
+                      -> Test
+testStorablePrimitive p = testProperty (pType ++ ": Store/Load ")
+                               $ prop_StoreLoad p
+     where pType = primitiveName p

@@ -3,14 +3,13 @@ module Modules.CBC
        ( tests
        ) where
 
-import Data.ByteString        (ByteString,pack)
-import Test.Framework         (Test)
+import Data.ByteString          (ByteString,pack)
+import Test.Framework           (Test)
 
 import Raaz.Primitives.Cipher
-import Raaz.Util.Proxy
 
-import Raaz.Cipher.AES.Type
-import Raaz.Cipher.AES.CBC
+import Raaz.Cipher.AES.Internal
+import Raaz.Cipher.AES.CBC      ()
 
 import Modules.Defaults
 
@@ -77,4 +76,4 @@ standard256Vector =
   ]
 
 tests :: [Test]
-tests = testsDefault (Proxy :: Proxy CBC) standard128Vector standard192Vector standard256Vector
+tests = testsDefault (ProxyMode :: ProxyMode CBC) standard128Vector standard192Vector standard256Vector

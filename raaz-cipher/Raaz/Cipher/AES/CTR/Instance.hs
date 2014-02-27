@@ -37,12 +37,41 @@ instance CryptoPrimitive (AES256 CTR Decryption) where
   type Reference (AES256 CTR Decryption) = Ref256 CTR Decryption
 
 
-instance CipherGadget (Ref128 CTR)
-instance CipherGadget (Ref192 CTR)
-instance CipherGadget (Ref256 CTR)
-instance CipherGadget (CPortable128 CTR)
-instance CipherGadget (CPortable192 CTR)
-instance CipherGadget (CPortable256 CTR)
+instance HasInverse (Ref128 CTR Encryption) where
+  type Inverse (Ref128 CTR Encryption) = Ref128 CTR Decryption
+
+instance HasInverse (Ref128 CTR Decryption) where
+  type Inverse (Ref128 CTR Decryption) = Ref128 CTR Encryption
+
+instance HasInverse (Ref192 CTR Encryption) where
+  type Inverse (Ref192 CTR Encryption) = Ref192 CTR Decryption
+
+instance HasInverse (Ref192 CTR Decryption) where
+  type Inverse (Ref192 CTR Decryption) = Ref192 CTR Encryption
+
+instance HasInverse (Ref256 CTR Encryption) where
+  type Inverse (Ref256 CTR Encryption) = Ref256 CTR Decryption
+
+instance HasInverse (Ref256 CTR Decryption) where
+  type Inverse (Ref256 CTR Decryption) = Ref256 CTR Encryption
+
+instance HasInverse (CPortable128 CTR Encryption) where
+  type Inverse (CPortable128 CTR Encryption) = CPortable128 CTR Decryption
+
+instance HasInverse (CPortable128 CTR Decryption) where
+  type Inverse (CPortable128 CTR Decryption) = CPortable128 CTR Encryption
+
+instance HasInverse (CPortable192 CTR Encryption) where
+  type Inverse (CPortable192 CTR Encryption) = CPortable192 CTR Decryption
+
+instance HasInverse (CPortable192 CTR Decryption) where
+  type Inverse (CPortable192 CTR Decryption) = CPortable192 CTR Encryption
+
+instance HasInverse (CPortable256 CTR Encryption) where
+  type Inverse (CPortable256 CTR Encryption) = CPortable256 CTR Decryption
+
+instance HasInverse (CPortable256 CTR Decryption) where
+  type Inverse (CPortable256 CTR Decryption) = CPortable256 CTR Encryption
 
 instance StreamGadget (Ref128 CTR Encryption)
 instance StreamGadget (Ref192 CTR Encryption)

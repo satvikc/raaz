@@ -7,14 +7,14 @@ module Modules.CTR
 import Criterion.Main
 
 import Raaz.Primitives.Cipher
-import Raaz.Util.Proxy
 
-import Raaz.Cipher.AES.CTR    ()
+import Raaz.Cipher.AES.Internal
+import Raaz.Cipher.AES.CTR      ()
 
 import Modules.Defaults
 
 benchmarks :: [Benchmark]
-benchmarks = benchmarksDefault (Proxy :: Proxy CTR)
+benchmarks = benchmarksDefault (ProxyMode :: ProxyMode CTR)
 
 benchmarksTiny :: [Benchmark]
-benchmarksTiny = benchmarksTinyDefault (Proxy :: Proxy CTR)
+benchmarksTiny = benchmarksTinyDefault (ProxyMode :: ProxyMode CTR)

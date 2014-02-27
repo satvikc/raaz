@@ -12,10 +12,8 @@ import qualified Data.ByteString          as BS
 import           Raaz.Primitives
 import           Raaz.Benchmark.Gadget
 import           Raaz.Primitives.Cipher
-import           Raaz.Util.Proxy
 
 import           Raaz.Cipher.AES.Internal
-import           Raaz.Cipher.AES.ECB
 
 genIV :: (Initializable p) => ByteString -> IV p
 genIV bs = generateIV undefined bs
@@ -66,12 +64,12 @@ nBlocks g = 10 * recommendedBlocks g
 
 benchCipher g gname iv = benchGadgetWith g gname iv (nBlocks g)
 
-benchmarksTinyDefault mode = [ benchCipher (r128 mode (Proxy :: Proxy Encryption)) "AES128 Reference Encryption" testKey128
-                             , benchCipher (c128 mode (Proxy :: Proxy Encryption)) "AES128 CPortable Encryption" testKey128 ]
+benchmarksTinyDefault mode = [ benchCipher (r128 mode (ProxyStage :: ProxyStage Encryption)) "AES128 Reference Encryption" testKey128
+                             , benchCipher (c128 mode (ProxyStage :: ProxyStage Encryption)) "AES128 CPortable Encryption" testKey128 ]
   where
-    r128 :: (Gadget (Ref128 mode stage)) => Proxy mode -> Proxy stage -> Ref128 mode stage
+    r128 :: (Gadget (Ref128 mode stage)) => ProxyMode mode -> ProxyStage stage -> Ref128 mode stage
     r128 = undefined
-    c128 :: (Gadget (CPortable128 mode stage)) => Proxy mode -> Proxy stage -> CPortable128 mode stage
+    c128 :: (Gadget (CPortable128 mode stage)) => ProxyMode mode -> ProxyStage stage -> CPortable128 mode stage
     c128 = undefined
 
 benchmarksDefault mode = [ benchCipher (r128 mode encr) "AES128 Reference Encryption" testKey128
@@ -87,19 +85,19 @@ benchmarksDefault mode = [ benchCipher (r128 mode encr) "AES128 Reference Encryp
                          , benchCipher (r256 mode decr) "AES256 Reference Decryption" testKey256
                          , benchCipher (c256 mode decr) "AES256 CPortable Decryption" testKey256 ]
   where
-    encr :: Proxy Encryption
-    encr = Proxy
-    decr :: Proxy Decryption
-    decr = Proxy
-    r128 :: (Gadget (Ref128 mode stage)) => Proxy mode -> Proxy stage -> Ref128 mode stage
+    encr :: ProxyStage Encryption
+    encr = ProxyStage
+    decr :: ProxyStage Decryption
+    decr = ProxyStage
+    r128 :: (Gadget (Ref128 mode stage)) => ProxyMode mode -> ProxyStage stage -> Ref128 mode stage
     r128 = undefined
-    r192 :: (Gadget (Ref192 mode stage)) => Proxy mode -> Proxy stage -> Ref192 mode stage
+    r192 :: (Gadget (Ref192 mode stage)) => ProxyMode mode -> ProxyStage stage -> Ref192 mode stage
     r192 = undefined
-    r256 :: (Gadget (Ref256 mode stage)) => Proxy mode -> Proxy stage -> Ref256 mode stage
+    r256 :: (Gadget (Ref256 mode stage)) => ProxyMode mode -> ProxyStage stage -> Ref256 mode stage
     r256 = undefined
-    c128 :: (Gadget (CPortable128 mode stage)) => Proxy mode -> Proxy stage -> CPortable128 mode stage
+    c128 :: (Gadget (CPortable128 mode stage)) => ProxyMode mode -> ProxyStage stage -> CPortable128 mode stage
     c128 = undefined
-    c192 :: (Gadget (CPortable192 mode stage)) => Proxy mode -> Proxy stage -> CPortable192 mode stage
+    c192 :: (Gadget (CPortable192 mode stage)) => ProxyMode mode -> ProxyStage stage -> CPortable192 mode stage
     c192 = undefined
-    c256 :: (Gadget (CPortable256 mode stage)) => Proxy mode -> Proxy stage -> CPortable256 mode stage
+    c256 :: (Gadget (CPortable256 mode stage)) => ProxyMode mode -> ProxyStage stage -> CPortable256 mode stage
     c256 = undefined

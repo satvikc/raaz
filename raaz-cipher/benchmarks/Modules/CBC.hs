@@ -6,14 +6,14 @@ module Modules.CBC
 
 import Criterion.Main
 import Raaz.Primitives.Cipher
-import Raaz.Util.Proxy
 
-import Raaz.Cipher.AES.CBC    ()
+import Raaz.Cipher.AES.Internal
+import Raaz.Cipher.AES.CBC      ()
 
 import Modules.Defaults
 
 benchmarks :: [Benchmark]
-benchmarks = benchmarksDefault (Proxy :: Proxy CBC)
+benchmarks = benchmarksDefault (ProxyMode :: ProxyMode CBC)
 
 benchmarksTiny :: [Benchmark]
-benchmarksTiny = benchmarksTinyDefault (Proxy :: Proxy CBC)
+benchmarksTiny = benchmarksTinyDefault (ProxyMode :: ProxyMode CBC)

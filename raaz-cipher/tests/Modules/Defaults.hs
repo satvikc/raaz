@@ -15,12 +15,10 @@ import           Raaz.Test.Cipher
 import           Raaz.Test.Gadget         (testGadget)
 import           Raaz.Primitives
 import           Raaz.Primitives.Cipher
-import           Raaz.Util.Proxy
 
-import           Raaz.Cipher.AES.Type
 import           Raaz.Cipher.AES.Internal
 
-import           Modules.Block.Ref        ()
+-- import           Modules.Block.Ref        ()
 
 
 testKey128 :: ByteString
@@ -61,47 +59,42 @@ testKey256 =  pack [0x60,0x3d,0xeb,0x10
                    ,0x0C,0x0D,0x0E,0x0F]
 
 
-cportableVsReference :: ( CipherGadget g1
-                        , CipherGadget g2
-                        , (PrimitiveOf (g1 Encryption) ~ PrimitiveOf (g2 Encryption))
-                        , (PrimitiveOf (g1 Decryption) ~ PrimitiveOf (g2 Decryption))
-                        , Initializable (PrimitiveOf (g1 Encryption))
-                        , Initializable (PrimitiveOf (g1 Decryption))
-                        , Eq (PrimitiveOf (g1 Encryption))
-                        , Eq (PrimitiveOf (g1 Decryption)))
-                      => (g1 Encryption) -> (g2 Encryption) -> ByteString -> [Test]
+cportableVsReference :: ( HasInverse g1
+                        , HasInverse g2
+                        , (PrimitiveOf g1 ~ PrimitiveOf g2)
+                        , (PrimitiveOf (Inverse g1) ~ PrimitiveOf (Inverse g2))
+                        , Initializable (PrimitiveOf g1)
+                        , Initializable (PrimitiveOf (Inverse g1))
+                        , Eq (PrimitiveOf g1)
+                        , Eq (PrimitiveOf (Inverse g1)))
+                      => g1 -> g2 -> ByteString -> [Test]
 cportableVsReference ge1 ge2 iv' =
   [ testGadget ge1 ge2 (getIV iv) "CPortable vs Reference Encryption"
-  , testGadget (gadD ge1) (gadD ge2) (getIV iv) "CPortable vs Reference Decryption"]
+  , testGadget (inverseGadget ge1) (inverseGadget ge2) (getIV iv) "CPortable vs Reference Decryption"]
   where
-    getPrim :: (Gadget (g Encryption)) => g Encryption -> PrimitiveOf (g Encryption)
-    getPrim _ = undefined
-    iv = BS.take (fromIntegral $ ivSize $ getPrim ge1) iv'
-    gadD :: g Encryption -> g Decryption
-    gadD _ = undefined
+    iv = BS.take (fromIntegral $ ivSize $ primitiveOf ge1) iv'
 
 testsDefault m s128 s192 s256 =
-      [ testGroup ("AES128 " ++ mode ++ " Reference") $ (testStandardCiphers (pr128 m) s128 "")
-      , testGroup ("AES192 " ++ mode ++ " Reference") $ (testStandardCiphers (pr192 m) s192 "")
-      , testGroup ("AES256 " ++ mode ++ " Reference") $ (testStandardCiphers (pr256 m) s256 "")
-      , testGroup ("AES128 " ++ mode ++ " CPortable") $ (testStandardCiphers (pc128 m) s128 "")
-      , testGroup ("AES192 " ++ mode ++ " CPortable") $ (testStandardCiphers (pc192 m) s192 "")
-      , testGroup ("AES256 " ++ mode ++ " CPortable") $ (testStandardCiphers (pc256 m) s256 "")
-      , testGroup ("AES128 " ++ mode ++ " CPortable vs Reference") $ cportableVsReference (pr128 m) (pc128 m) testKey128
-      , testGroup ("AES192 " ++ mode ++ " CPortable vs Reference") $ cportableVsReference (pr192 m) (pc192 m) testKey192
-      , testGroup ("AES256 " ++ mode ++ " CPortable vs Reference") $ cportableVsReference (pr256 m) (pc256 m) testKey256
+      [ testGroup ("AES128 Reference") $ (testStandardCiphers (pr128 m) s128 "")
+      , testGroup ("AES192 Reference") $ (testStandardCiphers (pr192 m) s192 "")
+      , testGroup ("AES256 Reference") $ (testStandardCiphers (pr256 m) s256 "")
+      , testGroup ("AES128 CPortable") $ (testStandardCiphers (pc128 m) s128 "")
+      , testGroup ("AES192 CPortable") $ (testStandardCiphers (pc192 m) s192 "")
+      , testGroup ("AES256 CPortable") $ (testStandardCiphers (pc256 m) s256 "")
+      , testGroup ("AES128 CPortable vs Reference") $ cportableVsReference (pr128 m) (pc128 m) testKey128
+      , testGroup ("AES192 CPortable vs Reference") $ cportableVsReference (pr192 m) (pc192 m) testKey192
+      , testGroup ("AES256 CPortable vs Reference") $ cportableVsReference (pr256 m) (pc256 m) testKey256
       ]
       where
-        pr128 :: Proxy m -> Ref128 m Encryption
+        pr128 :: ProxyMode m -> Ref128 m Encryption
         pr128 _ = undefined
-        pr192 :: Proxy m -> Ref192 m Encryption
+        pr192 :: ProxyMode m -> Ref192 m Encryption
         pr192 _ = undefined
-        pr256 :: Proxy m -> Ref256 m Encryption
+        pr256 :: ProxyMode m -> Ref256 m Encryption
         pr256 _ = undefined
-        pc128 :: Proxy m -> CPortable128 m Encryption
+        pc128 :: ProxyMode m -> CPortable128 m Encryption
         pc128 _ = undefined
-        pc192 :: Proxy m -> CPortable192 m Encryption
+        pc192 :: ProxyMode m -> CPortable192 m Encryption
         pc192 _ = undefined
-        pc256 :: Proxy m -> CPortable256 m Encryption
+        pc256 :: ProxyMode m -> CPortable256 m Encryption
         pc256 _ = undefined
-        mode = show $ modeRep m

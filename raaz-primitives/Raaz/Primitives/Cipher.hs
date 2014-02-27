@@ -9,10 +9,10 @@ A cryptographic cipher abstraction.
 {-# LANGUAGE DeriveDataTypeable    #-}
 {-# LANGUAGE DataKinds             #-}
 {-# LANGUAGE KindSignatures        #-}
+{-# LANGUAGE TypeFamilies          #-}
 
 module Raaz.Primitives.Cipher
-       ( CipherGadget
-       , StreamGadget
+       ( StreamGadget
        -- * Block Cipher Modes
        --
        -- A block cipher can be run in many different modes. These
@@ -46,15 +46,15 @@ data Stage = Encryption
            | Decryption
            deriving (Show,Typeable)
 
--- | A cipher gadget is one that supports both encryption and
+-- A cipher gadget is one that supports both encryption and
 -- decryption. For block ciphers, we do not take care of padding. In
 -- fact there are no standard ways to pad messages and these are
 -- usually application dependent.
-class ( Gadget (g Encryption)
-      , Gadget (g Decryption)
-      , Initializable (PrimitiveOf (g Encryption))
-      , Initializable (PrimitiveOf (g Decryption))
-      ) => CipherGadget (g :: Stage -> *)
+-- class ( Gadget (g Encryption)
+--       , Gadget (g Decryption)
+--       , Initializable (PrimitiveOf (g Encryption))
+--       , Initializable (PrimitiveOf (g Decryption))
+--       ) => CipherGadget (g :: Stage -> *)
 
 
 -- | This class captures gadgets which can be used as stream ciphers.

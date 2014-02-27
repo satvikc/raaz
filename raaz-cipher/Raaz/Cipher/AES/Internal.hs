@@ -6,7 +6,7 @@
 
 module Raaz.Cipher.AES.Internal
        ( module Raaz.Cipher.AES.Ref.Type
-       , module Raaz.Cipher.Util.Typeable
+       , module Raaz.Cipher.Util.Proxy
        , Ref128(..)
        , Ref192(..)
        , Ref256(..)
@@ -20,12 +20,10 @@ module Raaz.Cipher.AES.Internal
 
 import Raaz.Cipher.AES.Ref.Type
 
-import Data.Typeable
 import Raaz.Memory
 import Raaz.Primitives.Cipher
-import Raaz.Util.Proxy
+import Raaz.Cipher.Util.Proxy
 
-import Raaz.Cipher.Util.Typeable
 
 -- | Reference Implementation for AES128 in CBC Mode
 data Ref128 (m :: Mode) (s :: Stage) = Ref128 (CryptoCell Expanded128, CryptoCell STATE)
@@ -50,21 +48,3 @@ data AES128 (m :: Mode) (s :: Stage) = AES128 deriving (Show,Eq)
 data AES192 (m :: Mode) (s :: Stage) = AES192 deriving (Show,Eq)
 
 data AES256 (m :: Mode) (s :: Stage) = AES256 deriving (Show,Eq)
-
-instance (TypeableMode m, TypeableStage s) => Typeable (AES128 m s) where
-  typeOf _ =
-    mkTyConApp
-    (mkTyCon3 "raaz-cipher" "Raaz.Cipher.Internal" "AES128")
-        [modeRep (Proxy :: Proxy m), stageRep (Proxy :: Proxy s)]
-
-instance (TypeableMode m, TypeableStage s) => Typeable (AES192 m s) where
-  typeOf _ =
-    mkTyConApp
-    (mkTyCon3 "raaz-cipher" "Raaz.Cipher.Internal" "AES192")
-        [modeRep (Proxy :: Proxy m), stageRep (Proxy :: Proxy s)]
-
-instance (TypeableMode m, TypeableStage s) => Typeable (AES256 m s) where
-  typeOf _ =
-    mkTyConApp
-    (mkTyCon3 "raaz-cipher" "Raaz.Cipher.Internal" "AES256")
-        [modeRep (Proxy :: Proxy m), stageRep (Proxy :: Proxy s)]

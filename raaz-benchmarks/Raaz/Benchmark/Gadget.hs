@@ -16,7 +16,7 @@ import Raaz.Types
 import Raaz.Util.Ptr
 
 -- | Measures the performance of a gadget on the given buffer.
-benchGadget  :: ( Gadget g, Typeable (PrimitiveOf g) )
+benchGadget  :: Gadget g
              => g                      -- ^ Gadget
              -> String                 -- ^ Gadget name
              -> IV (PrimitiveOf g)     -- ^ Gadget IV
@@ -27,7 +27,7 @@ benchGadget g' gname iv cptr nblks = bench name $ applyGadget g' iv cptr nblks
   where
     name = getName g' gname
 
-benchGadgetWith :: ( Gadget g, Typeable (PrimitiveOf g) )
+benchGadgetWith :: Gadget g
                 => g                      -- ^ Gadget
                 -> String                 -- ^ Gadget name
                 -> IV (PrimitiveOf g)     -- ^ Gadget IV
@@ -54,7 +54,7 @@ applyGadget g' iv cptr nblks = do
     createGadget :: Gadget g => g -> IO g
     createGadget _ = newGadget
 
-getName :: ( Gadget g, Typeable (PrimitiveOf g) )
+getName :: Gadget g
         => g
         -> String
         -> String
@@ -63,7 +63,7 @@ getName g gname = name
     getPrim :: Gadget g => g -> PrimitiveOf g
     getPrim _ = undefined
     name = concat [ "Primitive: "
-                  , show (typeOf $ getPrim g)
+                  , primitiveName $ getPrim g
                   , " => Gadget: "
                   , gname
                   ]

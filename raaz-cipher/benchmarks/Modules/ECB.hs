@@ -7,14 +7,14 @@ module Modules.ECB
 import Criterion.Main
 
 import Raaz.Primitives.Cipher
-import Raaz.Util.Proxy
 
-import Raaz.Cipher.AES.ECB    ()
+import Raaz.Cipher.AES.Internal
+import Raaz.Cipher.AES.ECB      ()
 
 import Modules.Defaults
 
 benchmarks :: [Benchmark]
-benchmarks = benchmarksDefault (Proxy :: Proxy ECB)
+benchmarks = benchmarksDefault (ProxyMode :: ProxyMode ECB)
 
 benchmarksTiny :: [Benchmark]
-benchmarksTiny = benchmarksTinyDefault (Proxy :: Proxy ECB)
+benchmarksTiny = benchmarksTinyDefault (ProxyMode :: ProxyMode ECB)

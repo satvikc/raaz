@@ -22,33 +22,39 @@ instance Primitive (AES128 CBC Encryption) where
   blockSize _ = cryptoCoerce $ BITS (128 :: Int)
   {-# INLINE blockSize #-}
   newtype IV (AES128 CBC Encryption) = AES128EIV (ByteString, ByteString)
+  primitiveName _ = "AES128 CBC Encryption"
 
 instance Primitive (AES128 CBC Decryption) where
   blockSize _ = cryptoCoerce $ BITS (128 :: Int)
   {-# INLINE blockSize #-}
   newtype IV (AES128 CBC Decryption) = AES128DIV (ByteString, ByteString)
+  primitiveName _ = "AES128 CBC Decryption"
 
 -- | Primitive for AES192 in CBC Mode
 instance Primitive (AES192 CBC Encryption) where
   blockSize _ = cryptoCoerce $ BITS (128 :: Int)
   {-# INLINE blockSize #-}
   newtype IV (AES192 CBC Encryption) = AES192EIV (ByteString, ByteString)
+  primitiveName _ = "AES192 CBC Encryption"
 
 instance Primitive (AES192 CBC Decryption) where
   blockSize _ = cryptoCoerce $ BITS (128 :: Int)
   {-# INLINE blockSize #-}
   newtype IV (AES192 CBC Decryption) = AES192DIV (ByteString, ByteString)
+  primitiveName _ = "AES192 CBC Decryption"
 
 -- | Primitive for AES256 in CBC Mode
 instance Primitive (AES256 CBC Encryption) where
   blockSize _ = cryptoCoerce $ BITS (128 :: Int)
   {-# INLINE blockSize #-}
   newtype IV (AES256 CBC Encryption) = AES256EIV (ByteString, ByteString)
+  primitiveName _ = "AES256 CBC Encryption"
 
 instance Primitive (AES256 CBC Decryption) where
   blockSize _ = cryptoCoerce $ BITS (128 :: Int)
   {-# INLINE blockSize #-}
   newtype IV (AES256 CBC Decryption) = AES256DIV (ByteString, ByteString)
+  primitiveName _ = "AES256 CBC Encryption"
 
 -- | First KEY then 128bit initialization vector
 getIVCBC :: (Storable k) => ByteString -> k -> (ByteString,ByteString)

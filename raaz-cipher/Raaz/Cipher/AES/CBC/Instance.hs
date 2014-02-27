@@ -36,9 +36,38 @@ instance CryptoPrimitive (AES256 CBC Decryption) where
   type Recommended (AES256 CBC Decryption) = CPortable256 CBC Decryption
   type Reference (AES256 CBC Decryption) = Ref256 CBC Decryption
 
-instance CipherGadget (Ref128 CBC)
-instance CipherGadget (Ref192 CBC)
-instance CipherGadget (Ref256 CBC)
-instance CipherGadget (CPortable128 CBC)
-instance CipherGadget (CPortable192 CBC)
-instance CipherGadget (CPortable256 CBC)
+instance HasInverse (Ref128 CBC Encryption) where
+  type Inverse (Ref128 CBC Encryption) = Ref128 CBC Decryption
+
+instance HasInverse (Ref128 CBC Decryption) where
+  type Inverse (Ref128 CBC Decryption) = Ref128 CBC Encryption
+
+instance HasInverse (Ref192 CBC Encryption) where
+  type Inverse (Ref192 CBC Encryption) = Ref192 CBC Decryption
+
+instance HasInverse (Ref192 CBC Decryption) where
+  type Inverse (Ref192 CBC Decryption) = Ref192 CBC Encryption
+
+instance HasInverse (Ref256 CBC Encryption) where
+  type Inverse (Ref256 CBC Encryption) = Ref256 CBC Decryption
+
+instance HasInverse (Ref256 CBC Decryption) where
+  type Inverse (Ref256 CBC Decryption) = Ref256 CBC Encryption
+
+instance HasInverse (CPortable128 CBC Encryption) where
+  type Inverse (CPortable128 CBC Encryption) = CPortable128 CBC Decryption
+
+instance HasInverse (CPortable128 CBC Decryption) where
+  type Inverse (CPortable128 CBC Decryption) = CPortable128 CBC Encryption
+
+instance HasInverse (CPortable192 CBC Encryption) where
+  type Inverse (CPortable192 CBC Encryption) = CPortable192 CBC Decryption
+
+instance HasInverse (CPortable192 CBC Decryption) where
+  type Inverse (CPortable192 CBC Decryption) = CPortable192 CBC Encryption
+
+instance HasInverse (CPortable256 CBC Encryption) where
+  type Inverse (CPortable256 CBC Encryption) = CPortable256 CBC Decryption
+
+instance HasInverse (CPortable256 CBC Decryption) where
+  type Inverse (CPortable256 CBC Decryption) = CPortable256 CBC Encryption

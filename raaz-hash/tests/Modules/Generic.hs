@@ -33,17 +33,17 @@ import Raaz.Util.ByteString (toHex)
 -- the function is a list of pairs of bytestring and their
 -- corresponding hash value which is used as a unit testing test
 -- suites.
-allHashTests :: ( Arbitrary h, Show h, Hash h, Typeable h )
+allHashTests :: ( Arbitrary h, Show h, Hash h )
              => h         -- ^ dummy hash type to satisfy the type checker
              -> [(B.ByteString,B.ByteString)]
                           -- ^ string hash pairs
              -> [Test]
-allHashTests h pairs = [ testStoreLoad h
+allHashTests h pairs = [ testStorablePrimitive h
                        , testPadLengthVsPadding h
                        , testLengthDivisibility h
                        , testGroup unitTestName unitTests
                        ]
-    where unitTestName  = unwords [show $ typeOf h, "Unit tests"]
+    where unitTestName  = unwords [primitiveName h, "Unit tests"]
           unitTests     = testStandardHashValues h pairs
 
 prop_padLengthVsPadding :: Hash h => h -> BITS Word64 ->  Bool
@@ -57,17 +57,17 @@ prop_LengthDivisibility h w = len `rem` blockSize h == 0
 -- | For an instance of @`Hash`@, this test checks whether the padding
 -- length computed using the function @`padLength`@ is equal to the
 -- length of the bytestring returned by the function @`padding`@.
-testPadLengthVsPadding :: ( Hash h, Typeable h ) => h -> Test
+testPadLengthVsPadding :: Hash h => h -> Test
 testPadLengthVsPadding h =  testProperty name
                                      $ prop_padLengthVsPadding h
-    where name = show (typeOf h) ++ ": padLength vs length of padding"
+    where name = primitiveName h ++ ": padLength vs length of padding"
 
 -- | For a compressor, this test checks whether the sum of the message
 -- length and padding length is a multiple of the block length.
-testLengthDivisibility :: ( Hash h, Typeable h ) => h -> Test
+testLengthDivisibility :: Hash h => h -> Test
 testLengthDivisibility h = testProperty name
                            $ prop_LengthDivisibility h
-    where name = show (typeOf h) ++ ": padding + message length vs block length"
+    where name = primitiveName h ++ ": padding + message length vs block length"
 
 -- | The specifications of hash algorithms is usually accompanied with
 -- a set of strings and their corresponding hash values so that
@@ -78,7 +78,7 @@ testLengthDivisibility h = testProperty name
 -- type checker. The second argument is a list which consists of pairs
 -- of a string its hash (expressed as a bytestring in hex).
 
-testStandardHashValues :: (EndianStore h, Hash h, Typeable h)
+testStandardHashValues :: (EndianStore h, Hash h)
                        => h                             -- ^ hash
                                                         -- value
                                                         -- (ignored)
@@ -87,5 +87,5 @@ testStandardHashValues :: (EndianStore h, Hash h, Typeable h)
                        -> [Test]
 testStandardHashValues h = hUnitTestToTests . test . map checkHash
   where getHash a = toHex $ hash a `asTypeOf` h
-        label a   = show (typeOf h) ++ " " ++ shorten (show a)
+        label a   = primitiveName h ++ " " ++ shorten (show a)
         checkHash (a,b) = label a ~: getHash a ~?= b
