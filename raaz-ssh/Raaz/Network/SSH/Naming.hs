@@ -55,45 +55,27 @@ instance MethodName SHA512 where
   methodName _ = "sha-512"
 
 -- | IANA standard name for AES128 CBC
-instance MethodName (AES128 CBC Encryption) where
-  methodName _ = "aes128-cbc"
-
-instance MethodName (AES128 CBC Decryption) where
+instance MethodName (Cipher AES KEY128 CBC s) where
   methodName _ = "aes128-cbc"
 
 -- | IANA standard name for AES192 CBC
-instance MethodName (AES192 CBC Encryption) where
-  methodName _ = "aes192-cbc"
-
-instance MethodName (AES192 CBC Decryption) where
+instance MethodName (Cipher AES KEY192 CBC s) where
   methodName _ = "aes192-cbc"
 
 -- | IANA standard name for AES256 CBC
-instance MethodName (AES256 CBC Encryption) where
-  methodName _ = "aes256-cbc"
-
-instance MethodName (AES256 CBC Decryption) where
+instance MethodName (Cipher AES KEY256 CBC s) where
   methodName _ = "aes256-cbc"
 
 -- | IANA standard name for AES128 CTR
-instance MethodName (AES128 CTR Encryption) where
-  methodName _ = "aes128-ctr"
-
-instance MethodName (AES128 CTR Decryption) where
+instance MethodName (Cipher AES KEY128 CTR s) where
   methodName _ = "aes128-ctr"
 
 -- | IANA standard name for AES192 CTR
-instance MethodName (AES192 CTR Encryption) where
-  methodName _ = "aes192-ctr"
-
-instance MethodName (AES192 CTR Decryption) where
+instance MethodName (Cipher AES KEY192 CTR s) where
   methodName _ = "aes192-ctr"
 
 -- | IANA standard name for AES256 CTR
-instance MethodName (AES256 CTR Encryption) where
-  methodName _ = "aes256-ctr"
-
-instance MethodName (AES256 CTR Decryption) where
+instance MethodName (Cipher AES KEY256 CTR s) where
   methodName _ = "aes256-ctr"
 
 sha1 :: SHA1
@@ -111,38 +93,38 @@ sha384 = undefined
 sha512 :: SHA512
 sha512 = undefined
 
-aes256ctrE :: AES256 CTR Encryption
+aes256ctrE :: Cipher AES KEY256 CTR Encryption
 aes256ctrE = undefined
 
-aes256cbcE :: AES256 CBC Encryption
+aes256cbcE :: Cipher AES KEY256 CBC Encryption
 aes256cbcE = undefined
 
-aes192ctrE :: AES192 CTR Encryption
+aes192ctrE :: Cipher AES KEY192 CTR Encryption
 aes192ctrE = undefined
 
-aes192cbcE :: AES192 CBC Encryption
+aes192cbcE :: Cipher AES KEY192 CBC Encryption
 aes192cbcE = undefined
 
-aes128ctrE :: AES128 CTR Encryption
+aes128ctrE :: Cipher AES KEY128 CTR Encryption
 aes128ctrE = undefined
 
-aes128cbcE :: AES128 CBC Encryption
+aes128cbcE :: Cipher AES KEY128 CBC Encryption
 aes128cbcE = undefined
 
-aes256ctrD :: AES256 CTR Decryption
+aes256ctrD :: Cipher AES KEY256 CTR Decryption
 aes256ctrD = undefined
 
-aes256cbcD :: AES256 CBC Decryption
+aes256cbcD :: Cipher AES KEY256 CBC Decryption
 aes256cbcD = undefined
 
-aes192ctrD :: AES192 CTR Decryption
+aes192ctrD :: Cipher AES KEY192 CTR Decryption
 aes192ctrD = undefined
 
-aes192cbcD :: AES192 CBC Decryption
+aes192cbcD :: Cipher AES KEY192 CBC Decryption
 aes192cbcD = undefined
 
-aes128ctrD :: AES128 CTR Decryption
+aes128ctrD :: Cipher AES KEY128 CTR Decryption
 aes128ctrD = undefined
 
-aes128cbcD :: AES128 CBC Decryption
+aes128cbcD :: Cipher AES KEY128 CBC Decryption
 aes128cbcD = undefined
