@@ -137,8 +137,9 @@ data Message =
 
                -- | Global request. Bool specifies if reply needed or not.
              | GlobalRequest Bool GlobalRequestType
-               -- | Global request success
-             | RequestSuccess GlobalRequestSuccessData
+               -- | Global request success. ByteString contains
+               -- success specific data.
+             | RequestSuccess ByteString
                -- | Global request failure
              | RequestFailure
              | ChannelOpen { open_sender :: ChannelID
@@ -150,7 +151,7 @@ data Message =
                                        , conf_sender    :: ChannelID
                                        , conf_window    :: Word32BE
                                        , conf_packet    :: Word32BE
-                                       , conf_data      :: ConfirmationData
+                                       , conf_data      :: ByteString
                                        }
              | ChannelOpenFailure ChannelID ChannelOpenFailureReason Description
                -- | Channel Id and Bytes to add
@@ -221,11 +222,6 @@ data ChannelType = Session
                                , dtcpip_origaddr :: ByteString -- ^ Originator IP address
                                , dtcpip_origport :: Word32BE   -- ^ Originator Port
                                }
-
--- | Confirmation Data (I can not find any channel specific
--- confirmation data but it is mentioned in the standard that there
--- can be such data)
-data ConfirmationData = NoConfirmationData
 
 -- | Channel Request Types
 data ChannelRequestType = PtyReq { ptyreq_env     :: ByteString -- ^ Terminal environment variable

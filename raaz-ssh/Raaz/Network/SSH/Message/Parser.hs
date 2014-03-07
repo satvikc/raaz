@@ -56,7 +56,7 @@ decideParse 80 = parseSSHString >>= (GlobalRequest <$> parseBool <*>) . parseReq
     parseRequest "cancel-tcpip-forward" = CancelTCPIPForward <$> parseSSHString
                                                              <*> parse
     parseRequest _ = throw $ ParseError "Unknown Global Request"
-decideParse 81 = undefined
+decideParse 81 = RequestSuccess <$> undefined -- parse rest of data
 decideParse 82 = pure RequestFailure
 decideParse 90 = parseSSHString
              >>= (ChannelOpen <$> parse <*> parse <*> parse <*>) . parseType
@@ -71,16 +71,20 @@ decideParse 90 = parseSSHString
                                            <*> parse
                                            <*> parseSSHString
                                            <*> parse
-decideParse 91 = undefined
+decideParse 91 = ChannelOpenConfirmation <$> parse
+                                         <*> parse
+                                         <*> parse
+                                         <*> parse
+                                         <*> undefined -- parse rest of data
 decideParse 92 = ChannelOpenFailure <$> parse
-                                    <*> (toEnum . fromIntegral <$> parseWord32BE)
+                 <*> (toEnum . fromIntegral <$> parseWord32BE)
                                     <*> parseDescription
 decideParse 93 = ChannelWindowAdjust <$> parse <*> parse
 decideParse 94 = ChannelData <$> parse <*> parseSSHString
-decideParse 95 = undefined
+decideParse 95 = ChannelExtendedData <$> parse <*> parseExtendedDataType <*> parseSSHString
 decideParse 96 = ChannelEOF <$> parse
 decideParse 97 = ChannelClose <$> parse
-decideParse 98 = undefined
+decideParse 98 = ChannelRequest <$> parse <*> parseChannelRequestType <*> parseBool
 decideParse 99 = ChannelSuccess <$> parse
 decideParse 100 = ChannelFailure <$> parse
 decideParse _ = throw $ ParseError "Unkown Transport Message"
@@ -109,6 +113,12 @@ parseAuthMethod = check =<< parseSSHString
         checkChange True = Password <$> parseUTF8 <*> (Just <$> parseUTF8)
     check "hostbased" = undefined -- Not Implemented
     check "none" = pure None
+
+parseExtendedDataType :: Parser ExtendedDataType
+parseExtendedDataType = undefined
+
+parseChannelRequestType :: Parser ChannelRequestType
+parseChannelRequestType = undefined
 
 parseSSHString :: Parser ByteString
 parseSSHString = parseByteString . bytes =<< parseWord32BE
