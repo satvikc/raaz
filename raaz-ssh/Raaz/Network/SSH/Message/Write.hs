@@ -15,7 +15,7 @@ import           Data.Typeable
 import           Data.Word
 
 
-import           Raaz.Write
+import           Raaz.WriteSafe
 import           Raaz.Types
 
 import           Raaz.Network.SSH.Message.Type

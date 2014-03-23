@@ -13,7 +13,7 @@ import           Data.Typeable
 import           Data.Word
 
 
-import           Raaz.Parse                    (Parser,parse,parseStorable,parseByteString)
+import           Raaz.ParseSafe
 import           Raaz.Types
 
 import           Raaz.Network.SSH.Message.Type
@@ -56,7 +56,7 @@ decideParse 80 = parseSSHString >>= (GlobalRequest <$> parseBool <*>) . parseReq
     parseRequest "cancel-tcpip-forward" = CancelTCPIPForward <$> parseSSHString
                                                              <*> parse
     parseRequest _ = throw $ ParseError "Unknown Global Request"
-decideParse 81 = RequestSuccess <$> undefined -- parse rest of data
+decideParse 81 = RequestSuccess <$> parseRest
 decideParse 82 = pure RequestFailure
 decideParse 90 = parseSSHString
              >>= (ChannelOpen <$> parse <*> parse <*> parse <*>) . parseType
@@ -75,7 +75,7 @@ decideParse 91 = ChannelOpenConfirmation <$> parse
                                          <*> parse
                                          <*> parse
                                          <*> parse
-                                         <*> undefined -- parse rest of data
+                                         <*> parseRest
 decideParse 92 = ChannelOpenFailure <$> parse
                  <*> (toEnum . fromIntegral <$> parseWord32BE)
                                     <*> parseDescription
