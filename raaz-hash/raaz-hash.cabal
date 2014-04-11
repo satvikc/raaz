@@ -108,5 +108,9 @@ test-Suite tests
                --
                -- Raaz dependencies
                --
+<<<<<<< HEAD
                , raaz-core                      >=0.0.0.1 && < 0.0.0.2
+=======
+               , raaz-core                >=0.0.0.1 && < 0.0.0.2
+>>>>>>> Renamed raaz-primitives to raaz-core
                , raaz-hash                      >=0.0.0.1 && < 0.0.0.2

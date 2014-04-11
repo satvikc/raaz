@@ -102,7 +102,11 @@ test-Suite tests
                --
                -- Raaz dependencies
                --
+<<<<<<< HEAD
                , raaz-core                      >=0.0.0.1 && < 0.0.0.2
+=======
+               , raaz-core                >=0.0.0.1 && < 0.0.0.2
+>>>>>>> Renamed raaz-primitives to raaz-core
                , raaz-cipher                    >=0.0.0.1 && < 0.0.0.2
 
   if impl(ghc >= 7.6)
@@ -128,7 +132,11 @@ benchmark bench-builder-all
                --
                -- Raaz dependencies
                --
+<<<<<<< HEAD
                , raaz-core                      >=0.0.0.1 && < 0.0.0.2
+=======
+               , raaz-core                >=0.0.0.1 && < 0.0.0.2
+>>>>>>> Renamed raaz-primitives to raaz-core
                , raaz-benchmarks                >=0.0.0.1 && < 0.0.0.2
                , raaz-cipher                    >=0.0.0.1 && < 0.0.0.2
 
