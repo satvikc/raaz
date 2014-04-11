@@ -7,8 +7,8 @@ module Raaz.Cipher.AES.CTR.CPortable () where
 
 import           Control.Applicative
 import           Raaz.Memory
-import           Raaz.Primitives
-import           Raaz.Primitives.Cipher
+import           Raaz.Crypto
+import           Raaz.Crypto.Cipher
 import           Raaz.Types
 
 import           Raaz.Cipher.AES.Block.Type

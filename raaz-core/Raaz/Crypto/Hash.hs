@@ -8,8 +8,13 @@ A cryptographic hash function abstraction.
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE FlexibleContexts           #-}
 
+<<<<<<< HEAD:raaz-core/Raaz/Primitives/Hash.hs
 module Raaz.Primitives.Hash
        ( Hash
+=======
+module Raaz.Crypto.Hash
+       ( Hash(..)
+>>>>>>> Changed Primitives to Crypto:raaz-core/Raaz/Crypto/Hash.hs
        -- , HMAC(..)
        , sourceHash', sourceHash
        , hash', hash
@@ -25,7 +30,7 @@ import           System.IO            (withBinaryFile, IOMode(ReadMode), Handle)
 import           System.IO.Unsafe     (unsafePerformIO)
 
 import           Raaz.ByteSource
-import           Raaz.Primitives
+import           Raaz.Crypto
 import           Raaz.Types
 
 

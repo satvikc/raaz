@@ -27,8 +27,8 @@ module Raaz.Cipher.Salsa20.Internal
        , module Raaz.Cipher.Salsa20.Block.Internal
        ) where
 
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Crypto
+import Raaz.Crypto.Cipher
 
 import Raaz.Cipher.Salsa20.Block.Type
 import Raaz.Cipher.Salsa20.Block.Internal

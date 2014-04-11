@@ -13,8 +13,8 @@ import           Test.Framework.Providers.QuickCheck2 (testProperty)
 import           Test.QuickCheck
 import           Test.QuickCheck.Monadic              (run, assert, monadicIO)
 
-import           Raaz.Primitives
-import           Raaz.Primitives.Cipher
+import           Raaz.Crypto
+import           Raaz.Crypto.Cipher
 import qualified Raaz.Util.ByteString                 as BU
 import           Raaz.Memory
 import           Raaz.Serialize

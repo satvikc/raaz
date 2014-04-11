@@ -6,9 +6,9 @@ import           Data.ByteString              (ByteString,pack)
 import qualified Data.ByteString              as BS
 import           Data.Typeable
 
-import           Raaz.Primitives
+import           Raaz.Crypto
 import           Raaz.Benchmark.Gadget
-import           Raaz.Primitives.Cipher
+import           Raaz.Crypto.Cipher
 import           Raaz.Serialize
 
 import           Raaz.Cipher.Salsa20.Internal

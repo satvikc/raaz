@@ -28,7 +28,7 @@ import Raaz.Hash.Sha224 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha256 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha384 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha512 hiding ( toByteString, toHex)
-import Raaz.Primitives.Hash    ( sourceHash, hash, hashFile )
+import Raaz.Crypto.Hash    ( sourceHash, hash, hashFile )
 import Raaz.Types              ( toByteString               )
 import Raaz.Util.ByteString    ( toHex                      )
 
@@ -36,7 +36,7 @@ import Raaz.Util.ByteString    ( toHex                      )
 --
 -- As opposed to other cryptographic libraries, we capture each
 -- cryptographic hash by a separate type. These types are instances of
--- the type class `Raaz.Primitives.Hash.Hash`. Each of the hash types
+-- the type class `Raaz.Crypto.Hash.Hash`. Each of the hash types
 -- are to be treated as /opaque types/ as their constructors are not
 -- exposed from this module. This is to take advantage of the type
 -- checking. A cryptographic hash is an instances of the class

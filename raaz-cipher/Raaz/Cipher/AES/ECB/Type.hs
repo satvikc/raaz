@@ -5,8 +5,8 @@
 
 module Raaz.Cipher.AES.ECB.Type where
 
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Crypto
+import Raaz.Crypto.Cipher
 import Raaz.Types
 
 import Raaz.Cipher.AES.Internal

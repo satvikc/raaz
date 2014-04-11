@@ -16,7 +16,7 @@ import Data.Version(showVersion)
 import Paths_raaz(version)
 
 import Raaz.Hash
-import Raaz.Primitives.Hash(Hash)
+import Raaz.Crypto.Hash(Hash)
 
 
 data Shasum = Shasum { hashType :: String

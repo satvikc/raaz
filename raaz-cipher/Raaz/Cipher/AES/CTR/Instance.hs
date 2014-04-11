@@ -4,8 +4,8 @@
 
 module Raaz.Cipher.AES.CTR.Instance where
 
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Crypto
+import Raaz.Crypto.Cipher
 
 import Raaz.Cipher.AES.CTR.Ref ()
 import Raaz.Cipher.AES.CTR.CPortable ()

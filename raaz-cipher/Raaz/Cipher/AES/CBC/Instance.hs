@@ -5,8 +5,8 @@
 
 module Raaz.Cipher.AES.CBC.Instance where
 
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Crypto
+import Raaz.Crypto.Cipher
 
 import Raaz.Cipher.AES.CBC.Ref ()
 import Raaz.Cipher.AES.CBC.CPortable ()

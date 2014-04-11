@@ -25,7 +25,7 @@ import Foreign.Ptr(castPtr)
 import Foreign.Storable(Storable(..))
 
 import Raaz.Parse.Unsafe
-import Raaz.Primitives
+import Raaz.Crypto
 import Raaz.Types
 import Raaz.Write.Unsafe
 

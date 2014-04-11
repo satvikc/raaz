@@ -33,8 +33,8 @@ import           Foreign.Ptr                   (castPtr, plusPtr)
 
 import           Raaz.ByteSource
 import           Raaz.Memory
-import           Raaz.Primitives
-import           Raaz.Primitives.Cipher
+import           Raaz.Crypto
+import           Raaz.Crypto.Cipher
 import           Raaz.Types
 import           Raaz.Util.Ptr
 import qualified Raaz.Util.ByteString          as BU

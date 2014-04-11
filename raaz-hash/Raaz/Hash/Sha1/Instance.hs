@@ -14,8 +14,8 @@ import Control.Applicative ( (<$>) )
 import Control.Monad       ( foldM )
 
 import Raaz.Memory
-import Raaz.Primitives
-import Raaz.Primitives.Hash
+import Raaz.Crypto
+import Raaz.Crypto.Hash
 import Raaz.Util.Ptr
 
 import Raaz.Hash.Sha1.Type

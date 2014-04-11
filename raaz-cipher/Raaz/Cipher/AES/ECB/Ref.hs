@@ -10,8 +10,8 @@ import Control.Applicative
 import Control.Monad
 
 import Raaz.Memory
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Crypto
+import Raaz.Crypto.Cipher
 import Raaz.Types
 import Raaz.Util.Ptr
 

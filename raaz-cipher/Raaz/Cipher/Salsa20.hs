@@ -23,12 +23,12 @@ module Raaz.Cipher.Salsa20
 #endif
        , Nonce
        , Counter
-       , module Raaz.Primitives
-       , module Raaz.Primitives.Cipher
+       , module Raaz.Crypto
+       , module Raaz.Crypto.Cipher
        ) where
 
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Crypto
+import Raaz.Crypto.Cipher
 
 import Raaz.Cipher.Salsa20.Instances()
 import Raaz.Cipher.Salsa20.Internal

@@ -66,11 +66,11 @@ library
                  , Raaz.Memory
                  , Raaz.Parse
                  , Raaz.Parse.Unsafe
-                 , Raaz.Primitives
-                 , Raaz.Primitives.Hash
+                 , Raaz.Crypto
+                 , Raaz.Crypto.Hash
                  , Raaz.Primitives.Mode
---                 , Raaz.Primitives.MAC
-                 , Raaz.Primitives.Cipher
+--                 , Raaz.Crypto.MAC
+                 , Raaz.Crypto.Cipher
                  , Raaz.Serialize
                  , Raaz.System.Parameters
                  , Raaz.Types

@@ -24,8 +24,8 @@ import           Test.Framework.Providers.HUnit (hUnitTestToTests)
 
 import           Raaz.ByteSource
 import           Raaz.Types
-import           Raaz.Primitives
-import           Raaz.Primitives.Cipher
+import           Raaz.Crypto
+import           Raaz.Crypto.Cipher
 import           Raaz.Util.ByteString           (hex)
 import           Raaz.Serialize
 import           Raaz.Test.Gadget

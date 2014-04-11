@@ -8,7 +8,7 @@ module Raaz.Benchmark.Gadget
 
 import Criterion.Main
 
-import Raaz.Primitives
+import Raaz.Crypto
 import Raaz.Types
 import Raaz.Util.Ptr
 

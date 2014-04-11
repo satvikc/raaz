@@ -17,7 +17,7 @@ import qualified Data.ByteString.Lazy as L
 import Raaz.ByteSource
 import Raaz.Hash.Sha1.Type(SHA1)
 import Raaz.Hash.Sha1.Instance()
-import Raaz.Primitives.Hash ( sourceHash, hash, hashFile)
+import Raaz.Crypto.Hash ( sourceHash, hash, hashFile)
 import Raaz.Types           ( toByteString               )
 import Raaz.Util.ByteString ( toHex                      )
 

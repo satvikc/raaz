@@ -15,7 +15,7 @@ import qualified Data.ByteString as B
 import qualified Data.ByteString.Lazy as L
 
 import Raaz.ByteSource
-import Raaz.Primitives.Hash( sourceHash, hash, hashFile)
+import Raaz.Crypto.Hash( sourceHash, hash, hashFile)
 import Raaz.Hash.Sha512.Type(SHA512)
 import Raaz.Hash.Sha512.Instance()
 import Raaz.Types           ( toByteString               )

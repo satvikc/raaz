@@ -22,8 +22,8 @@ import Foreign.Ptr
 import Foreign.Storable
 
 import Raaz.Memory
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Crypto
+import Raaz.Crypto.Cipher
 import Raaz.Types
 import Raaz.Util.Ptr
 

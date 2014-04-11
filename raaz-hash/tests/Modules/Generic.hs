@@ -25,8 +25,8 @@ import           Test.HUnit                           ((~?=), test, (~:) )
 import           Test.Framework.Providers.HUnit       (hUnitTestToTests)
 import           Test.QuickCheck                      (Arbitrary)
 
-import           Raaz.Primitives
-import           Raaz.Primitives.Hash
+import           Raaz.Crypto
+import           Raaz.Crypto.Hash
 import           Raaz.Types
 import           Raaz.Test.EndianStore
 import           Raaz.Test.Cipher

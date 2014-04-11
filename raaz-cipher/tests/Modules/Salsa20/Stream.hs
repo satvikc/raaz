@@ -18,8 +18,8 @@ import           Raaz.Test                      ()
 import           Raaz.Test.Cipher
 import           Raaz.Test.Gadget               (testGadget)
 import           Raaz.Types
-import           Raaz.Primitives
-import           Raaz.Primitives.Cipher
+import           Raaz.Crypto
+import           Raaz.Crypto.Cipher
 import qualified Raaz.Util.ByteString           as BU
 
 import           Raaz.Cipher.Salsa20.Internal

@@ -20,8 +20,8 @@ import           Test.HUnit
 import           Raaz.Test                      ()
 import           Raaz.Test.Cipher
 import           Raaz.Test.Gadget               (testGadget)
-import           Raaz.Primitives
-import           Raaz.Primitives.Cipher
+import           Raaz.Crypto
+import           Raaz.Crypto.Cipher
 import           Raaz.Serialize
 
 import           Modules.EcryptTestParser

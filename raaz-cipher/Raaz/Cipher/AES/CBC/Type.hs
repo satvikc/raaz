@@ -5,9 +5,9 @@
 
 module Raaz.Cipher.AES.CBC.Type where
 
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
-import Raaz.Types
+import           Raaz.Crypto
+import           Raaz.Crypto.Cipher
+import           Raaz.Types
 
 import Raaz.Cipher.AES.Block.Internal
 import Raaz.Cipher.AES.Internal

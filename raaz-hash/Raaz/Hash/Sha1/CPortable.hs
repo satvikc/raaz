@@ -15,7 +15,7 @@ module Raaz.Hash.Sha1.CPortable () where
 import Control.Applicative ( (<$>) )
 
 import Raaz.Memory
-import Raaz.Primitives
+import Raaz.Crypto
 import Raaz.Types
 
 import Raaz.Hash.Sha1.Type

@@ -7,7 +7,7 @@ import Data.Monoid                  ( (<>)              )
 import Data.Word
 import Prelude              hiding  ( length, replicate )
 
-import Raaz.Primitives
+import Raaz.Crypto
 import Raaz.Types
 import Raaz.Util.ByteString ( length   )
 
