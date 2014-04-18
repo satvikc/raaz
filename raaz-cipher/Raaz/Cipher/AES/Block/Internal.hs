@@ -40,7 +40,7 @@ import Foreign.Storable         (sizeOf,Storable)
 
 import Raaz.Memory
 import Raaz.Core.Types
-import Raaz.Util.Ptr            (allocaBuffer)
+import Raaz.Core.Util.Ptr            (allocaBuffer)
 
 import Raaz.Cipher.AES.Block.Type
 import Raaz.Cipher.Util.GF

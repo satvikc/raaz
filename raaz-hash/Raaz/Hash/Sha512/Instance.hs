@@ -14,9 +14,9 @@ import Control.Applicative ( (<$>) )
 import Control.Monad       ( foldM )
 
 import Raaz.Memory
-import Raaz.Crypto
-import Raaz.Crypto.Hash
-import Raaz.Util.Ptr
+import Raaz.Core.Crypto
+import Raaz.Core.Crypto.Hash
+import Raaz.Core.Util.Ptr
 
 import Raaz.Hash.Sha512.Type
 import Raaz.Hash.Sha512.Ref

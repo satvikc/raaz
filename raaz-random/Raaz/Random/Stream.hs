@@ -31,13 +31,13 @@ import qualified Data.ByteString.Lazy.Internal as BL
 import           Foreign.ForeignPtr            (withForeignPtr)
 import           Foreign.Ptr                   (castPtr, plusPtr)
 
-import           Raaz.ByteSource
+import           Raaz.Core.Types.ByteSource
 import           Raaz.Memory
-import           Raaz.Crypto
-import           Raaz.Crypto.Cipher
+import           Raaz.Core.Crypto
+import           Raaz.Core.Crypto.Cipher
 import           Raaz.Core.Types
-import           Raaz.Util.Ptr
-import qualified Raaz.Util.ByteString          as BU
+import           Raaz.Core.Util.Ptr
+import qualified Raaz.Core.Util.ByteString          as BU
 
 -- | A buffered random source which uses a stream gadget as the
 -- underlying source for generating random bytes.

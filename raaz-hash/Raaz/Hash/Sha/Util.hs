@@ -7,9 +7,9 @@ import Data.Monoid                  ( (<>)              )
 import Data.Word
 import Prelude              hiding  ( length, replicate )
 
-import Raaz.Crypto
+import Raaz.Core.Crypto
 import Raaz.Core.Types
-import Raaz.Util.ByteString ( length   )
+import Raaz.Core.Util.ByteString ( length   )
 
 firstPadByte :: Word8
 firstPadByte = 128

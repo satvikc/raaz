@@ -2,7 +2,7 @@ module Modules.AES.ECB (benchmarks, benchmarksTiny) where
 
 import Criterion.Main
 
-import Raaz.Crypto.Cipher
+import Raaz.Core.Crypto.Cipher
 
 import Raaz.Cipher.AES
 

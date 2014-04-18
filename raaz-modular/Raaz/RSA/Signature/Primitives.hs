@@ -9,7 +9,7 @@ import           Foreign.Storable
 import qualified Data.ByteString      as BS
 
 import           Raaz.Types
-import qualified Raaz.Util.ByteString as BU
+import qualified Raaz.Core.Util.ByteString as BU
 
 import           Raaz.Public
 import           Raaz.RSA.Exception

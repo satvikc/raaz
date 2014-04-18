@@ -28,15 +28,15 @@ import Raaz.Hash.Sha224 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha256 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha384 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha512 hiding ( toByteString, toHex)
-import Raaz.Crypto.Hash    ( sourceHash, hash, hashFile )
+import Raaz.Core.Crypto.Hash    ( sourceHash, hash, hashFile )
 import Raaz.Core.Types              ( toByteString               )
-import Raaz.Util.ByteString    ( toHex                      )
+import Raaz.Core.Util.ByteString    ( toHex                      )
 
 -- $computingHash$
 --
 -- As opposed to other cryptographic libraries, we capture each
 -- cryptographic hash by a separate type. These types are instances of
--- the type class `Raaz.Crypto.Hash.Hash`. Each of the hash types
+-- the type class `Raaz.Core.Crypto.Hash.Hash`. Each of the hash types
 -- are to be treated as /opaque types/ as their constructors are not
 -- exposed from this module. This is to take advantage of the type
 -- checking. A cryptographic hash is an instances of the class
@@ -52,7 +52,7 @@ import Raaz.Util.ByteString    ( toHex                      )
 -- There are three functions that you may use to compute the
 -- cryptographic hash. The most generic function for computing a
 -- cryptographic hash is `sourceHash`. The input to this function is
--- any instance of the class `Raaz.ByteSource.ByteSource` which
+-- any instance of the class `Raaz.Core.Types.ByteSource.ByteSource` which
 -- includes file `System.IO.Handle`, strict as well as lazy
 -- bytestrings. The result type is wrapped in an `IO` monad as reading
 -- data from certain byte sources like handle can have side effect.
@@ -60,7 +60,7 @@ import Raaz.Util.ByteString    ( toHex                      )
 -- > sourceHash :: (Hash hash, ByteSource src) => src -> IO hash
 --
 -- If the input byte source is an instance of
--- `Raaz.ByteSource.PureByteSource`, like for example strict
+-- `Raaz.Core.Types.ByteSource.PureByteSource`, like for example strict
 -- `Data.ByteString.Bytestring` or lazy
 -- `Data.ByteString.Lazy.ByteString` byte strings, one can use the
 -- pure function `hash`.

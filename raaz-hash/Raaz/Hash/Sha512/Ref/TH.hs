@@ -17,7 +17,7 @@ import Data.Bits
 import Language.Haskell.TH
 
 import Raaz.Core.Types
-import Raaz.Util.TH
+import Raaz.Core.Util.TH
 
 import Raaz.Hash.Sha512.Type(SHA512(..))
 

@@ -6,8 +6,8 @@ module Modules.Util where
 import Data.ByteString  (ByteString)
 import Test.Framework   (Test, testGroup)
 
-import Raaz.Crypto
-import Raaz.Crypto.Cipher
+import Raaz.Core.Crypto
+import Raaz.Core.Crypto.Cipher
 import Raaz.Serialize
 import Raaz.Test.Gadget
 

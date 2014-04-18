@@ -15,7 +15,7 @@ module Raaz.Hash.Sha256.Ref
 import Control.Applicative
 
 import Raaz.Core.Types
-import Raaz.Util.Ptr
+import Raaz.Core.Util.Ptr
 
 import Raaz.Hash.Sha256.Type(SHA256(..))
 import Raaz.Hash.Sha256.Ref.TH

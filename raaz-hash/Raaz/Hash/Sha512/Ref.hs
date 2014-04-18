@@ -15,7 +15,7 @@ module Raaz.Hash.Sha512.Ref
 import Control.Applicative
 
 import Raaz.Core.Types
-import Raaz.Util.Ptr
+import Raaz.Core.Util.Ptr
 
 import Raaz.Hash.Sha512.Type(SHA512(..))
 import Raaz.Hash.Sha512.Ref.TH

@@ -29,8 +29,8 @@ module Raaz.Cipher.AES.Internal
 import Raaz.Cipher.AES.Block.Type
 import Raaz.Cipher.AES.Block.Internal
 
-import Raaz.Crypto
-import Raaz.Crypto.Cipher
+import Raaz.Core.Crypto
+import Raaz.Core.Crypto.Cipher
 
 -- | AES Data type with associated modes.
 #if UseKinds

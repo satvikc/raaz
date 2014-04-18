@@ -10,8 +10,8 @@ module Raaz.Cipher.AES.CBC.CPortable () where
 
 import Control.Applicative
 import Raaz.Memory
-import Raaz.Crypto
-import Raaz.Crypto.Cipher
+import Raaz.Core.Crypto
+import Raaz.Core.Crypto.Cipher
 import Raaz.Core.Types
 
 import Raaz.Cipher.AES.CBC.Type

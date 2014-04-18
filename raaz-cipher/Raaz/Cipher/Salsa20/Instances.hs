@@ -22,10 +22,10 @@ import Foreign.Ptr
 import Foreign.Storable
 
 import Raaz.Memory
-import Raaz.Crypto
-import Raaz.Crypto.Cipher
+import Raaz.Core.Crypto
+import Raaz.Core.Crypto.Cipher
 import Raaz.Core.Types
-import Raaz.Util.Ptr
+import Raaz.Core.Util.Ptr
 
 import Raaz.Cipher.Salsa20.Block.Internal
 import Raaz.Cipher.Salsa20.Block.Type

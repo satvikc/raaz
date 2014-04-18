@@ -5,7 +5,7 @@ module Modules.AES.CBC
 import Data.ByteString               (ByteString,pack)
 import Test.Framework                (Test)
 
-import Raaz.Crypto.Cipher
+import Raaz.Core.Crypto.Cipher
 import Raaz.Cipher.AES.Type
 
 import Raaz.Cipher.AES.CBC

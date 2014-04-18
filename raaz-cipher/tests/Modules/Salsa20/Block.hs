@@ -16,7 +16,7 @@ import           Test.Framework.Providers.HUnit       (hUnitTestToTests)
 import           Raaz.Test.Cipher                     (shorten)
 import           Raaz.Core.Types
 import           Raaz.Cipher.Salsa20.Internal
-import           Raaz.Util.ByteString
+import           Raaz.Core.Util.ByteString
 
 instance Arbitrary STATE where
   arbitrary = STATE <$> arbitrary

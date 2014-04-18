@@ -62,15 +62,15 @@ flag auto-configure
   default: True
 
 library
-  exposed-modules: Raaz.ByteSource
+  exposed-modules: Raaz.Core.Types.ByteSource
                  , Raaz.Memory
                  , Raaz.Core.Parse
                  , Raaz.Core.Parse.Unsafe
-                 , Raaz.Crypto
-                 , Raaz.Crypto.Hash
-                 , Raaz.Primitives.Mode
---                 , Raaz.Crypto.MAC
-                 , Raaz.Crypto.Cipher
+                 , Raaz.Core.Crypto
+                 , Raaz.Core.Crypto.Hash
+                 , Raaz.Core.Primitives.Mode
+--                 , Raaz.Core.Crypto.MAC
+                 , Raaz.Core.Crypto.Cipher
                  , Raaz.Serialize
                  , Raaz.System.Parameters
                  , Raaz.Core.Types
@@ -78,11 +78,11 @@ library
                  , Raaz.Test.Cipher
                  , Raaz.Test.EndianStore
                  , Raaz.Test.Gadget
-                 , Raaz.Util.ByteString
-                 , Raaz.Util.Gadget
-                 , Raaz.Util.Ptr
-                 , Raaz.Util.SecureMemory
-                 , Raaz.Util.TH
+                 , Raaz.Core.Util.ByteString
+                 , Raaz.Core.Util.Gadget
+                 , Raaz.Core.Util.Ptr
+                 , Raaz.Core.Util.SecureMemory
+                 , Raaz.Core.Util.TH
                  , Raaz.Core.Write
                  , Raaz.Core.Write.Unsafe
   build-depends: base                           >= 4.5 && < 4.8

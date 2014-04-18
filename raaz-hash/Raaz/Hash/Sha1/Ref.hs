@@ -16,7 +16,7 @@ module Raaz.Hash.Sha1.Ref
 import Control.Applicative
 
 import Raaz.Core.Types
-import Raaz.Util.Ptr
+import Raaz.Core.Util.Ptr
 
 import Raaz.Hash.Sha1.Type(SHA1(..))
 import Raaz.Hash.Sha1.Ref.TH

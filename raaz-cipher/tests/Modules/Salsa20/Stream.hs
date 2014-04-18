@@ -18,9 +18,9 @@ import           Raaz.Test                      ()
 import           Raaz.Test.Cipher
 import           Raaz.Test.Gadget               (testGadget)
 import           Raaz.Core.Types
-import           Raaz.Crypto
-import           Raaz.Crypto.Cipher
-import qualified Raaz.Util.ByteString           as BU
+import           Raaz.Core.Crypto
+import           Raaz.Core.Crypto.Cipher
+import qualified Raaz.Core.Util.ByteString           as BU
 
 import           Raaz.Cipher.Salsa20.Internal
 import           Raaz.Cipher.Salsa20            ()

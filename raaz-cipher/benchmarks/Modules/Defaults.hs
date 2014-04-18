@@ -4,7 +4,7 @@ module Modules.Defaults
        ) where
 
 import Raaz.Core.Types
-import Raaz.Crypto
+import Raaz.Core.Crypto
 
 -- | Number of Blocks to run benchmarks on.
 nBlocks :: (Gadget g) => g -> BLOCKS (PrimitiveOf g)

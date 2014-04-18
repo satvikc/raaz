@@ -7,9 +7,9 @@ import           Data.ByteString          (ByteString,pack)
 import qualified Data.ByteString          as BS
 import           Data.Typeable
 
-import           Raaz.Crypto
+import           Raaz.Core.Crypto
 import           Raaz.Benchmark.Gadget
-import           Raaz.Crypto.Cipher
+import           Raaz.Core.Crypto.Cipher
 import           Raaz.Serialize
 
 import           Raaz.Cipher.AES.Internal

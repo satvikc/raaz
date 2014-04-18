@@ -25,13 +25,13 @@ import           Test.HUnit                           ((~?=), test, (~:) )
 import           Test.Framework.Providers.HUnit       (hUnitTestToTests)
 import           Test.QuickCheck                      (Arbitrary)
 
-import           Raaz.Crypto
-import           Raaz.Crypto.Hash
+import           Raaz.Core.Crypto
+import           Raaz.Core.Crypto.Hash
 import           Raaz.Core.Types
 import           Raaz.Test.EndianStore
 import           Raaz.Test.Cipher
 import           Raaz.Test.Gadget
-import           Raaz.Util.ByteString                 (toHex)
+import           Raaz.Core.Util.ByteString                 (toHex)
 
 
 -- | This runs all the test for a given hash. The second argument to

@@ -12,7 +12,7 @@ module Raaz.Random.Number
 import qualified Data.ByteString        as BS
 import Data.Word
 
-import Raaz.Crypto.Cipher
+import Raaz.Core.Crypto.Cipher
 import Raaz.Random.Stream
 import Raaz.Core.Types
 

@@ -10,6 +10,6 @@ main = defaultMain tests
 
 tests :: [Test]
 tests = [ testGroup "Raaz.Core.Types" Types.tests
-        , testGroup "Raaz.Util.ByteString" ByteString.tests
+        , testGroup "Raaz.Core.Util.ByteString" ByteString.tests
         , CLoad.tests
         ]

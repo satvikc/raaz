@@ -5,8 +5,8 @@
 
 module Raaz.Cipher.AES.CTR.Type where
 
-import           Raaz.Crypto
-import           Raaz.Crypto.Cipher
+import           Raaz.Core.Crypto
+import           Raaz.Core.Crypto.Cipher
 import           Raaz.Core.Types
 
 import Raaz.Cipher.AES.Block.Internal
