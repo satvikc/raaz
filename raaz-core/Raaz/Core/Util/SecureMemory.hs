@@ -17,7 +17,7 @@ locked by a users process. So use it judciously.
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE TupleSections              #-}
 
-module Raaz.Util.SecureMemory
+module Raaz.Core.Util.SecureMemory
        (
          -- * Architecture of the allocator.
          -- $architecture
@@ -38,7 +38,7 @@ import Foreign.Concurrent
 import Foreign.ForeignPtr     (finalizeForeignPtr)
 
 import Raaz.Core.Types
-import Raaz.Util.Ptr
+import Raaz.Core.Util.Ptr
 import Raaz.System.Parameters (pageSize)
 
 foreign import ccall unsafe "cbits/raaz/memory.c memorylock"

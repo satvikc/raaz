@@ -9,7 +9,7 @@ also consider using the INLINE pragma.
 
 -}
 
-module Raaz.Util.TH
+module Raaz.Core.Util.TH
        ( constants
        , matrix
        , variable, variable', variableGen
