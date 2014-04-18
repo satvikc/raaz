@@ -22,7 +22,7 @@ import           Test.Framework                 (Test, testGroup)
 import           Test.HUnit                     ((~?=), test, (~:) )
 import           Test.Framework.Providers.HUnit (hUnitTestToTests)
 
-import           Raaz.ByteSource
+import           Raaz.Core.Types.ByteSource
 import           Raaz.Core.Types
 import           Raaz.Core.Crypto
 import           Raaz.Core.Crypto.Cipher

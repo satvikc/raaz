@@ -29,7 +29,7 @@ import           Prelude              hiding (length)
 import           System.IO            (withBinaryFile, IOMode(ReadMode), Handle)
 import           System.IO.Unsafe     (unsafePerformIO)
 
-import           Raaz.ByteSource
+import           Raaz.Core.Types.ByteSource
 import           Raaz.Core.Crypto
 import           Raaz.Core.Types
 

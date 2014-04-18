@@ -41,7 +41,7 @@ import           System.IO                (withFile, IOMode(ReadMode))
 
 import           Raaz.Memory
 import           Raaz.Core.Types
-import           Raaz.ByteSource
+import           Raaz.Core.Types.ByteSource
 import           Raaz.Core.Util.ByteString
 import           Raaz.Core.Util.Ptr
 
