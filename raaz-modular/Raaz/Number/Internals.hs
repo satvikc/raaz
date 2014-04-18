@@ -27,7 +27,7 @@ import Data.Word
 import Foreign.Ptr
 import Foreign.Storable
 
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Parse.Unsafe
 import Raaz.Write.Unsafe
 

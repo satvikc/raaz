@@ -30,7 +30,7 @@ import Foreign.Storable     (sizeOf,Storable(..))
 import Numeric              (showHex)
 
 import Raaz.Serialize
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Parse.Unsafe
 import Raaz.Write.Unsafe
 

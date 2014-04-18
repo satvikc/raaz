@@ -20,7 +20,7 @@ import Foreign.Ptr
 
 import Raaz.Memory
 import Raaz.Crypto
-import Raaz.Types
+import Raaz.Core.Types
 
 import Raaz.Hash.Sha256.Type
 

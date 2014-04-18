@@ -27,7 +27,7 @@ import           Test.QuickCheck                      (Arbitrary)
 
 import           Raaz.Crypto
 import           Raaz.Crypto.Hash
-import           Raaz.Types
+import           Raaz.Core.Types
 import           Raaz.Test.EndianStore
 import           Raaz.Test.Cipher
 import           Raaz.Test.Gadget

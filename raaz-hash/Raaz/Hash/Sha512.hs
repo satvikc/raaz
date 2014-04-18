@@ -18,7 +18,7 @@ import Raaz.ByteSource
 import Raaz.Crypto.Hash( sourceHash, hash, hashFile)
 import Raaz.Hash.Sha512.Type(SHA512)
 import Raaz.Hash.Sha512.Instance()
-import Raaz.Types           ( toByteString               )
+import Raaz.Core.Types           ( toByteString               )
 import Raaz.Util.ByteString ( toHex                      )
 
 

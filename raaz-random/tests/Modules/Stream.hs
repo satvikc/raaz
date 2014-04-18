@@ -18,7 +18,7 @@ import           Raaz.Crypto.Cipher
 import qualified Raaz.Util.ByteString                 as BU
 import           Raaz.Memory
 import           Raaz.Serialize
-import           Raaz.Types
+import           Raaz.Core.Types
 
 import           Raaz.Random
 

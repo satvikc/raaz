@@ -16,7 +16,7 @@ import           Data.ByteString            (ByteString)
 import           Data.Typeable
 import           Foreign.Storable
 
-import           Raaz.Types
+import           Raaz.Core.Types
 
 import qualified Raaz.Parse.Unsafe          as PU
 

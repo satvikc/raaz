@@ -16,7 +16,7 @@ import Control.Monad (liftM2)
 import Data.Bits
 import Language.Haskell.TH
 
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Util.TH
 
 import Raaz.Hash.Sha256.Type(SHA256(..))

@@ -17,7 +17,7 @@ import           Test.HUnit                     ((@=?))
 import           Raaz.Test                      ()
 import           Raaz.Test.Cipher
 import           Raaz.Test.Gadget               (testGadget)
-import           Raaz.Types
+import           Raaz.Core.Types
 import           Raaz.Crypto
 import           Raaz.Crypto.Cipher
 import qualified Raaz.Util.ByteString           as BU

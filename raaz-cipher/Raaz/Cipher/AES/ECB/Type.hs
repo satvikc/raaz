@@ -7,7 +7,7 @@ module Raaz.Cipher.AES.ECB.Type where
 
 import Raaz.Crypto
 import Raaz.Crypto.Cipher
-import Raaz.Types
+import Raaz.Core.Types
 
 import Raaz.Cipher.AES.Internal
 

@@ -14,7 +14,7 @@ import           Raaz.Crypto
 import           Raaz.Crypto.Cipher
 import qualified Raaz.Util.ByteString                 as BU
 import           Raaz.Memory
-import           Raaz.Types
+import           Raaz.Core.Types
 
 import           Modules.Stream                       (createGadget, testiv)
 import           Raaz.Random

@@ -14,7 +14,7 @@ import Data.Word
 
 import Raaz.Crypto.Cipher
 import Raaz.Random.Stream
-import Raaz.Types
+import Raaz.Core.Types
 
 -- | Generates a positive number i such that 0 <= i <= m. The argument
 -- should always be positive.

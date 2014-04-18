@@ -8,7 +8,7 @@ import Data.Word
 import Prelude              hiding  ( length, replicate )
 
 import Raaz.Crypto
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Util.ByteString ( length   )
 
 firstPadByte :: Word8

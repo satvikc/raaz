@@ -37,7 +37,7 @@ import Data.IORef
 import Foreign.Concurrent
 import Foreign.ForeignPtr     (finalizeForeignPtr)
 
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Util.Ptr
 import Raaz.System.Parameters (pageSize)
 

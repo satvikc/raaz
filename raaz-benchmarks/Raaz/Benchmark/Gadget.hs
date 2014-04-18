@@ -9,7 +9,7 @@ module Raaz.Benchmark.Gadget
 import Criterion.Main
 
 import Raaz.Crypto
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Util.Ptr
 
 -- | Measures the performance of a gadget on the given buffer.

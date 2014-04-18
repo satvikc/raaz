@@ -18,7 +18,7 @@ import Foreign.Storable
 import Foreign.Ptr         (castPtr)
 import Numeric             (showHex)
 
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Parse.Unsafe
 import Raaz.Write.Unsafe
 

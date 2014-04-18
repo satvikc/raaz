@@ -18,7 +18,7 @@ import Raaz.ByteSource
 import Raaz.Crypto.Hash( sourceHash, hash, hashFile)
 import Raaz.Hash.Sha224.Type(SHA224)
 import Raaz.Hash.Sha224.Instance()
-import Raaz.Types           ( toByteString               )
+import Raaz.Core.Types           ( toByteString               )
 import Raaz.Util.ByteString ( toHex                      )
 
 -- | Compute the sha224 hash of the given byte source.

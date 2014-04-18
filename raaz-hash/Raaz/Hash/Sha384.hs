@@ -19,7 +19,7 @@ import Raaz.ByteSource
 import Raaz.Crypto.Hash( sourceHash, hash, hashFile)
 import Raaz.Hash.Sha384.Type(SHA384)
 import Raaz.Hash.Sha384.Instance()
-import Raaz.Types           ( toByteString               )
+import Raaz.Core.Types           ( toByteString               )
 import Raaz.Util.ByteString ( toHex                      )
 
 

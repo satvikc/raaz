@@ -15,7 +15,7 @@ import Control.Applicative
 import Data.Bits
 import Language.Haskell.TH
 
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Util.TH
 
 import Raaz.Hash.Sha1.Type(SHA1(..))

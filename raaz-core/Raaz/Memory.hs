@@ -32,7 +32,7 @@ import Foreign.Ptr
 import Foreign.Storable
 
 
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Util.Ptr
 import Raaz.Util.SecureMemory
 

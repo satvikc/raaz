@@ -3,7 +3,7 @@ module Modules.Defaults
        , nSize
        ) where
 
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Crypto
 
 -- | Number of Blocks to run benchmarks on.

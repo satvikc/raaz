@@ -31,7 +31,7 @@ import           System.IO.Unsafe     (unsafePerformIO)
 
 import           Raaz.ByteSource
 import           Raaz.Crypto
-import           Raaz.Types
+import           Raaz.Core.Types
 
 
 class ( SafePrimitive h

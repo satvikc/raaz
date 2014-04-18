@@ -29,7 +29,7 @@ import Raaz.Hash.Sha256 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha384 hiding ( toByteString, toHex)
 import Raaz.Hash.Sha512 hiding ( toByteString, toHex)
 import Raaz.Crypto.Hash    ( sourceHash, hash, hashFile )
-import Raaz.Types              ( toByteString               )
+import Raaz.Core.Types              ( toByteString               )
 import Raaz.Util.ByteString    ( toHex                      )
 
 -- $computingHash$

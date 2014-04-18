@@ -24,7 +24,7 @@ import Foreign.Storable
 import Raaz.Memory
 import Raaz.Crypto
 import Raaz.Crypto.Cipher
-import Raaz.Types
+import Raaz.Core.Types
 import Raaz.Util.Ptr
 
 import Raaz.Cipher.Salsa20.Block.Internal

@@ -23,7 +23,7 @@ import           Test.HUnit                     ((~?=), test, (~:) )
 import           Test.Framework.Providers.HUnit (hUnitTestToTests)
 
 import           Raaz.ByteSource
-import           Raaz.Types
+import           Raaz.Core.Types
 import           Raaz.Crypto
 import           Raaz.Crypto.Cipher
 import           Raaz.Util.ByteString           (hex)

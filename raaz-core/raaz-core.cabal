@@ -73,7 +73,7 @@ library
                  , Raaz.Crypto.Cipher
                  , Raaz.Serialize
                  , Raaz.System.Parameters
-                 , Raaz.Types
+                 , Raaz.Core.Types
                  , Raaz.Test
                  , Raaz.Test.Cipher
                  , Raaz.Test.EndianStore

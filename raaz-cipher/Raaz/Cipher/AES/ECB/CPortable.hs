@@ -10,7 +10,7 @@ import Control.Applicative
 import Raaz.Memory
 import Raaz.Crypto
 import Raaz.Crypto.Cipher
-import Raaz.Types
+import Raaz.Core.Types
 
 import Raaz.Cipher.AES.Block.Type
 import Raaz.Cipher.AES.Block.Internal
