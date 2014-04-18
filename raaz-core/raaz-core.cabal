@@ -81,7 +81,7 @@ library
                  , Raaz.Core.Util.ByteString
                  , Raaz.Core.Util.Gadget
                  , Raaz.Core.Util.Ptr
-                 , Raaz.Core.Util.SecureMemory
+                 , Raaz.Core.Memory.SecureMemory
                  , Raaz.Core.Util.TH
                  , Raaz.Core.Write
                  , Raaz.Core.Write.Unsafe

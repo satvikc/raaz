@@ -17,7 +17,7 @@ locked by a users process. So use it judciously.
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE TupleSections              #-}
 
-module Raaz.Core.Util.SecureMemory
+module Raaz.Core.Memory.SecureMemory
        (
          -- * Architecture of the allocator.
          -- $architecture
