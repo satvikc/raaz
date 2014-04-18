@@ -7,7 +7,7 @@ This module contains some abstractions built on top of gadgets
 module Raaz.Core.Util.Gadget ( applyOnByteSource )where
 
 import Raaz.ByteSource
-import Raaz.Crypto
+import Raaz.Core.Crypto
 import Raaz.Core.Types
 import Raaz.Core.Util.Ptr
 

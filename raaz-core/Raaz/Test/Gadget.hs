@@ -22,7 +22,7 @@ import           Test.Framework.Providers.QuickCheck2 (testProperty)
 import           Test.QuickCheck
 import           Test.QuickCheck.Monadic              (run, assert, monadicIO)
 
-import           Raaz.Crypto
+import           Raaz.Core.Crypto
 import qualified Raaz.Core.Util.ByteString                 as BU
 import           Raaz.Core.Util.Ptr
 

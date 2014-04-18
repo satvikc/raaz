@@ -12,9 +12,9 @@ A cryptographic hash function abstraction.
 module Raaz.Primitives.Hash
        ( Hash
 =======
-module Raaz.Crypto.Hash
+module Raaz.Core.Crypto.Hash
        ( Hash(..)
->>>>>>> Changed Primitives to Crypto:raaz-core/Raaz/Crypto/Hash.hs
+>>>>>>> Changed Primitives to Crypto:raaz-core/Raaz.Core.Crypto/Hash.hs
        -- , HMAC(..)
        , sourceHash', sourceHash
        , hash', hash
@@ -30,7 +30,7 @@ import           System.IO            (withBinaryFile, IOMode(ReadMode), Handle)
 import           System.IO.Unsafe     (unsafePerformIO)
 
 import           Raaz.ByteSource
-import           Raaz.Crypto
+import           Raaz.Core.Crypto
 import           Raaz.Core.Types
 
 

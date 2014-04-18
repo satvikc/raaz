@@ -12,7 +12,7 @@ might be better of using the more high level interface.
 {-# LANGUAGE FlexibleContexts            #-}
 {-# LANGUAGE DefaultSignatures           #-}
 
-module Raaz.Crypto
+module Raaz.Core.Crypto
        ( -- * Primtives and gadgets.
          -- $primAndGadget$
 
