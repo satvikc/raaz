@@ -12,7 +12,7 @@ module Raaz.Hash.Sha224.CPortable () where
 
 import Control.Applicative ( (<$>) )
 
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Core.Crypto
 
 import Raaz.Hash.Sha224.Type

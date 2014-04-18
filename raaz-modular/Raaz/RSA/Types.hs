@@ -25,7 +25,7 @@ import Data.Monoid
 import Foreign.Ptr           (castPtr)
 import Foreign.Storable      (Storable(..), sizeOf)
 
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Primitives
 import Raaz.Core.Parse.Unsafe
 import Raaz.Core.Write.Unsafe

@@ -13,7 +13,7 @@ module Raaz.Hash.Sha384.Instance () where
 import Control.Applicative ((<$>))
 import Control.Monad       ( foldM )
 
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Core.Crypto
 import Raaz.Core.Crypto.Hash
 import Raaz.Core.Util.Ptr

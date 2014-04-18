@@ -9,7 +9,7 @@ module Raaz.Cipher.AES.ECB.Ref () where
 import Control.Applicative
 import Control.Monad
 
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Core.Crypto
 import Raaz.Core.Crypto.Cipher
 import Raaz.Core.Types

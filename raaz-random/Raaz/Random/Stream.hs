@@ -32,7 +32,7 @@ import           Foreign.ForeignPtr            (withForeignPtr)
 import           Foreign.Ptr                   (castPtr, plusPtr)
 
 import           Raaz.Core.Types.ByteSource
-import           Raaz.Memory
+import           Raaz.Core.Types.Memory
 import           Raaz.Core.Crypto
 import           Raaz.Core.Crypto.Cipher
 import           Raaz.Core.Types

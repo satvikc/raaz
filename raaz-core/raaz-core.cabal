@@ -63,7 +63,7 @@ flag auto-configure
 
 library
   exposed-modules: Raaz.Core.Types.ByteSource
-                 , Raaz.Memory
+                 , Raaz.Core.Types.Memory
                  , Raaz.Core.Parse
                  , Raaz.Core.Parse.Unsafe
                  , Raaz.Core.Crypto

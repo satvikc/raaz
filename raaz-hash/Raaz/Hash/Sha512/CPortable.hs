@@ -16,7 +16,7 @@ import Control.Applicative ( (<$>) )
 
 import Foreign.Ptr
 
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Core.Crypto
 import Raaz.Core.Types
 

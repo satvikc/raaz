@@ -6,7 +6,7 @@ Abstraction of a memory object.
 
 {-# LANGUAGE DefaultSignatures #-}
 
-module Raaz.Memory
+module Raaz.Core.Types.Memory
        ( Memory(..)
          -- CryptoCell
        , CryptoCell

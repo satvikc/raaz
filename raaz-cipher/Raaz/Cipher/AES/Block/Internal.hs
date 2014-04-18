@@ -38,7 +38,7 @@ import Data.Bits
 import Data.Word
 import Foreign.Storable         (sizeOf,Storable)
 
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Core.Types
 import Raaz.Core.Util.Ptr            (allocaBuffer)
 

@@ -17,7 +17,7 @@ import Control.Applicative
 import Data.Default
 import Foreign.Storable
 
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Primitives
 import Raaz.Primitives.Hash
 import Raaz.Primitives.Mode

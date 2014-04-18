@@ -13,7 +13,7 @@ import           Test.QuickCheck.Monadic              (run, assert, monadicIO)
 import           Raaz.Core.Crypto
 import           Raaz.Core.Crypto.Cipher
 import qualified Raaz.Core.Util.ByteString                 as BU
-import           Raaz.Memory
+import           Raaz.Core.Types.Memory
 import           Raaz.Core.Types
 
 import           Modules.Stream                       (createGadget, testiv)

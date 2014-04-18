@@ -9,7 +9,7 @@
 module Raaz.Cipher.AES.CBC.CPortable () where
 
 import Control.Applicative
-import Raaz.Memory
+import Raaz.Core.Types.Memory
 import Raaz.Core.Crypto
 import Raaz.Core.Crypto.Cipher
 import Raaz.Core.Types
