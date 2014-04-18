@@ -29,7 +29,7 @@ import Foreign.Storable
 
 import Raaz.Core.Types
 import Raaz.Core.Parse.Unsafe
-import Raaz.Write.Unsafe
+import Raaz.Core.Write.Unsafe
 
 
 import Raaz.Number.Modular

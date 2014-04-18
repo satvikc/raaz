@@ -19,7 +19,7 @@ import Foreign.Ptr              (castPtr, plusPtr)
 import System.IO.Unsafe         (unsafePerformIO)
 
 import Raaz.Core.Parse
-import Raaz.Write
+import Raaz.Core.Write
 import Raaz.Types
 
 -- | Types which can be read from or written to a CryptoBuffer.

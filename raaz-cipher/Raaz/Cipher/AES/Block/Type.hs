@@ -32,7 +32,7 @@ import Numeric              (showHex)
 import Raaz.Serialize
 import Raaz.Core.Types
 import Raaz.Core.Parse.Unsafe
-import Raaz.Write.Unsafe
+import Raaz.Core.Write.Unsafe
 
 -- | AES State
 data STATE = STATE {-# UNPACK #-} !Word32BE

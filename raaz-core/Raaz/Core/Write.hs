@@ -1,12 +1,12 @@
 -- | Module to write stuff to buffers. As opposed to similar functions
--- exposed in "Raaz.Write.Unsafe", the writes exposed here are safe as
+-- exposed in "Raaz.Core.Write.Unsafe", the writes exposed here are safe as
 -- necessary range checks are done on the buffer before writing stuff
 -- to it.
 
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-module Raaz.Write
+module Raaz.Core.Write
        ( Write, runWrite, tryWrite
        , write, writeStorable
        , WriteException(..)
@@ -25,11 +25,11 @@ import           Raaz.Core.Types
 import           Raaz.Util.Ptr
 import           Raaz.Util.ByteString as BU
 
-import qualified Raaz.Write.Unsafe    as WU
+import qualified Raaz.Core.Write.Unsafe    as WU
 
 -- | A write is an action which when executed using `runWrite` writes
 -- bytes to the input buffer. It is similar to the `WU.Write` type
--- exposed from the "Raaz.Write.Unsafe" module except that it keeps
+-- exposed from the "Raaz.Core.Write.Unsafe" module except that it keeps
 -- track of the total bytes that would be written to the buffer if the
 -- action is run. The `runWrite` action will raise an error if the
 -- buffer it is provided with is of size smaller. `Write`s are monoid

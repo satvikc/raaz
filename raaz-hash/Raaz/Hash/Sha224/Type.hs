@@ -27,7 +27,7 @@ import Foreign.Storable(Storable(..))
 import Raaz.Core.Parse.Unsafe
 import Raaz.Crypto
 import Raaz.Core.Types
-import Raaz.Write.Unsafe
+import Raaz.Core.Write.Unsafe
 
 import Raaz.Hash.Sha.Util
 import Raaz.Hash.Sha256.Type
