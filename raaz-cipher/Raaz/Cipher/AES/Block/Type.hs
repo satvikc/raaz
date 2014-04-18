@@ -31,7 +31,7 @@ import Numeric              (showHex)
 
 import Raaz.Serialize
 import Raaz.Core.Types
-import Raaz.Parse.Unsafe
+import Raaz.Core.Parse.Unsafe
 import Raaz.Write.Unsafe
 
 -- | AES State

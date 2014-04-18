@@ -18,7 +18,7 @@ import Foreign.ForeignPtr       (withForeignPtr)
 import Foreign.Ptr              (castPtr, plusPtr)
 import System.IO.Unsafe         (unsafePerformIO)
 
-import Raaz.Parse
+import Raaz.Core.Parse
 import Raaz.Write
 import Raaz.Types
 

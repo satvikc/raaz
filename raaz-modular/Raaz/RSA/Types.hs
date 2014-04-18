@@ -27,7 +27,7 @@ import Foreign.Storable      (Storable(..), sizeOf)
 
 import Raaz.Memory
 import Raaz.Primitives
-import Raaz.Parse.Unsafe
+import Raaz.Core.Parse.Unsafe
 import Raaz.Write.Unsafe
 import Raaz.Serialize
 import Raaz.Primitives.Mode

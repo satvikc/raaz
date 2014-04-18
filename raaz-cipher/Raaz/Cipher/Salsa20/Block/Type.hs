@@ -19,7 +19,7 @@ import Foreign.Ptr         (castPtr)
 import Numeric             (showHex)
 
 import Raaz.Core.Types
-import Raaz.Parse.Unsafe
+import Raaz.Core.Parse.Unsafe
 import Raaz.Write.Unsafe
 
 import Raaz.Serialize

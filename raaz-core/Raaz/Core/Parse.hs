@@ -4,7 +4,7 @@
 {-# LANGUAGE FlexibleContexts    #-}
 {-# LANGUAGE DeriveDataTypeable  #-}
 
-module Raaz.Parse
+module Raaz.Core.Parse
        ( Parser, parse, parseStorable, parseByteString, parseRest
        , ParseException(..)
        , runParser
@@ -18,7 +18,7 @@ import           Foreign.Storable
 
 import           Raaz.Core.Types
 
-import qualified Raaz.Parse.Unsafe          as PU
+import qualified Raaz.Core.Parse.Unsafe          as PU
 
 -- | A safe parser. Also stores the message bytes required in the
 -- available in the buffer.

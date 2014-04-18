@@ -64,8 +64,8 @@ flag auto-configure
 library
   exposed-modules: Raaz.ByteSource
                  , Raaz.Memory
-                 , Raaz.Parse
-                 , Raaz.Parse.Unsafe
+                 , Raaz.Core.Parse
+                 , Raaz.Core.Parse.Unsafe
                  , Raaz.Crypto
                  , Raaz.Crypto.Hash
                  , Raaz.Primitives.Mode

@@ -28,7 +28,7 @@ import Foreign.Ptr
 import Foreign.Storable
 
 import Raaz.Core.Types
-import Raaz.Parse.Unsafe
+import Raaz.Core.Parse.Unsafe
 import Raaz.Write.Unsafe
 
 
