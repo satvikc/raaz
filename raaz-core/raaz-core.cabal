@@ -67,6 +67,7 @@ library
                  , Raaz.Parse
                  , Raaz.Parse.Unsafe
                  , Raaz.Primitives
+                 , Raaz.Primitives.Application
                  , Raaz.Primitives.Hash
                  , Raaz.Primitives.Asymmetric
                  , Raaz.Primitives.Symmetric
