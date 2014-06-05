@@ -12,19 +12,19 @@ module Raaz.Network.SSH.Naming
          -- | Hash Primitives (which are just `undefined` with the correct type)
        , sha1, sha224, sha256, sha384, sha512
          -- | AES Primitives (which are just `undefined` with the correct type)
-       , aes256ctrE, aes192ctrE, aes128ctrE
-       , aes256ctrD, aes192ctrD, aes128ctrD
-       , aes256cbcE, aes192cbcE, aes128cbcE
-       , aes256cbcD, aes192cbcD, aes128cbcD
+       , aes256ctr, aes192ctr, aes128ctr
+       , aes256cbc, aes192cbc, aes128cbc
+       , rsa1024sign, rsa2048sign
+       , rsa1024verify, rsa2048verify
        ) where
 
 
 import           Raaz.Primitives
-import           Raaz.Hash (SHA1,SHA224,SHA256,SHA384,SHA512)
+import           Raaz.Hash              (SHA1,SHA224,SHA256,SHA384,SHA512)
 import           Raaz.Primitives.Cipher
-import           Raaz.Cipher.AES.Type
-import           Raaz.Cipher.AES.CBC    ()
-import           Raaz.Cipher.AES.CTR    ()
+import           Raaz.Cipher.AES
+import           Raaz.Number
+import           Raaz.RSA.Signature
 
 import qualified Data.ByteString.Char8  as C8
 
@@ -55,27 +55,27 @@ instance MethodName SHA512 where
   methodName _ = "sha-512"
 
 -- | IANA standard name for AES128 CBC
-instance MethodName (Cipher (AES CBC) KEY128 s) where
+instance MethodName (AES CBC KEY128) where
   methodName _ = "aes128-cbc"
 
 -- | IANA standard name for AES192 CBC
-instance MethodName (Cipher (AES CBC) KEY192 s) where
+instance MethodName (AES CBC KEY192) where
   methodName _ = "aes192-cbc"
 
 -- | IANA standard name for AES256 CBC
-instance MethodName (Cipher (AES CBC) KEY256 s) where
+instance MethodName (AES CBC KEY256) where
   methodName _ = "aes256-cbc"
 
 -- | IANA standard name for AES128 CTR
-instance MethodName (Cipher (AES CTR) KEY128 s) where
+instance MethodName (AES CTR KEY128) where
   methodName _ = "aes128-ctr"
 
 -- | IANA standard name for AES192 CTR
-instance MethodName (Cipher (AES CTR) KEY192 s) where
+instance MethodName (AES CTR KEY192) where
   methodName _ = "aes192-ctr"
 
 -- | IANA standard name for AES256 CTR
-instance MethodName (Cipher (AES CTR) KEY256 s) where
+instance MethodName (AES CTR KEY256) where
   methodName _ = "aes256-ctr"
 
 sha1 :: SHA1
@@ -93,38 +93,32 @@ sha384 = undefined
 sha512 :: SHA512
 sha512 = undefined
 
-aes256ctrE :: Cipher (AES CTR) KEY256 Encryption
-aes256ctrE = undefined
+aes256ctr :: AES CTR KEY256
+aes256ctr = undefined
 
-aes256cbcE :: Cipher (AES CBC) KEY256 Encryption
-aes256cbcE = undefined
+aes256cbc :: AES CBC KEY256
+aes256cbc = undefined
 
-aes192ctrE :: Cipher (AES CTR) KEY192 Encryption
-aes192ctrE = undefined
+aes192ctr :: AES CTR KEY192
+aes192ctr = undefined
 
-aes192cbcE :: Cipher (AES CBC) KEY192 Encryption
-aes192cbcE = undefined
+aes192cbc :: AES CBC KEY192
+aes192cbc = undefined
 
-aes128ctrE :: Cipher (AES CTR) KEY128 Encryption
-aes128ctrE = undefined
+aes128ctr :: AES CTR KEY128
+aes128ctr = undefined
 
-aes128cbcE :: Cipher (AES CBC) KEY128 Encryption
-aes128cbcE = undefined
+aes128cbc :: AES CBC KEY128
+aes128cbc = undefined
 
-aes256ctrD :: Cipher (AES CTR) KEY256 Decryption
-aes256ctrD = undefined
+rsa1024sign :: RSA Word1024 SHA1 PKCS SignMode
+rsa1024sign = undefined
 
-aes256cbcD :: Cipher (AES CBC) KEY256 Decryption
-aes256cbcD = undefined
+rsa2048sign :: RSA Word2048 SHA1 PKCS SignMode
+rsa2048sign = undefined
 
-aes192ctrD :: Cipher (AES CTR) KEY192 Decryption
-aes192ctrD = undefined
+rsa1024verify :: RSA Word1024 SHA1 PKCS VerifyMode
+rsa1024verify = undefined
 
-aes192cbcD :: Cipher (AES CBC) KEY192 Decryption
-aes192cbcD = undefined
-
-aes128ctrD :: Cipher (AES CTR) KEY128 Decryption
-aes128ctrD = undefined
-
-aes128cbcD :: Cipher (AES CBC) KEY128 Decryption
-aes128cbcD = undefined
+rsa2048verify :: RSA Word2048 SHA1 PKCS VerifyMode
+rsa2048verify = undefined

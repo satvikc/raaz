@@ -13,7 +13,7 @@ import           Data.Typeable
 import           Data.Word
 
 
-import           Raaz.ParseSafe
+import           Raaz.Parse
 import           Raaz.Types
 
 import           Raaz.Network.SSH.Message.Type
