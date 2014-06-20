@@ -19,14 +19,6 @@ import qualified Data.ByteString.Char8           as C8
 import           Data.ByteString                 (ByteString)
 import           Data.Version                    (showVersion)
 
-import           Raaz.Memory
-import           Raaz.Parse                      (runParser)
-import           Raaz.Primitives
-import           Raaz.Primitives.Cipher
-import           Raaz.Types
-import           Raaz.Util.ByteString
-import           Raaz.Util.Ptr
-
 import           Paths_raaz_ssh                  (version)
 import           Raaz.Network.SSH.Backend
 import           Raaz.Network.SSH.Exception

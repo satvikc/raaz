@@ -1,9 +1,9 @@
- module Raaz.Network.SSH.Message.Type where
+module Raaz.Network.SSH.Message.Type where
 
 import Data.ByteString.Char8 (ByteString)
 import Data.Text
 
-import Raaz.Types
+import Raaz.Core.Types
 
 -- | Message Id's
 data MessageID = DISCONNECT

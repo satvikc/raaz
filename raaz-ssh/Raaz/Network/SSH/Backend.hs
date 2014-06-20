@@ -6,7 +6,7 @@ import Foreign.Ptr         (castPtr, plusPtr)
 import Network.Socket      (Socket, sClose, sendBuf, recvBuf)
 import System.IO           (Handle,hClose,hPutBuf,hGetBuf)
 
-import Raaz.Types
+import Raaz.Core.Types
 
 
 -- | Represents an SSH Backend used for buffered communication.

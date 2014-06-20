@@ -19,14 +19,16 @@ module Raaz.Network.SSH.Naming
        ) where
 
 
-import           Raaz.Primitives
-import           Raaz.Hash              (SHA1,SHA224,SHA256,SHA384,SHA512)
-import           Raaz.Primitives.Cipher
+import           Raaz.Core.Primitives
+import           Raaz.Hash                   (SHA1,SHA224,SHA256,SHA384,SHA512)
+import           Raaz.Core.Primitives.Cipher
+import           Raaz.Core.Primitives.HMAC
 import           Raaz.Cipher.AES
 import           Raaz.Number
 import           Raaz.RSA.Signature
+import           Raaz.DH
 
-import qualified Data.ByteString.Char8  as C8
+import qualified Data.ByteString.Char8       as C8
 
 -- | Standard Naming required while algorithm negotiations.
 class MethodName p where
@@ -38,21 +40,36 @@ class MethodName p where
 instance MethodName SHA1 where
   methodName _ = "sha-1"
 
+instance MethodName (HMAC SHA1) where
+  methodName _ = "hmac-sha1"
+
 -- | IANA standard name for `SHA224`
 instance MethodName SHA224 where
   methodName _ = "sha-224"
+
+instance MethodName (HMAC SHA224) where
+  methodName _ = "hmac-sha224"
 
 -- | IANA standard name for `SHA256`
 instance MethodName SHA256 where
   methodName _ = "sha-256"
 
+instance MethodName (HMAC SHA256) where
+  methodName _ = "hmac-sha256"
+
 -- | IANA standard name for `SHA384`
 instance MethodName SHA384 where
   methodName _ = "sha-384"
 
+instance MethodName (HMAC SHA384) where
+  methodName _ = "hmac-sha384"
+
 -- | IANA standard name for `SHA512`
 instance MethodName SHA512 where
   methodName _ = "sha-512"
+
+instance MethodName (HMAC SHA512) where
+  methodName _ = "hmac-sha512"
 
 -- | IANA standard name for AES128 CBC
 instance MethodName (AES CBC KEY128) where
@@ -77,6 +94,16 @@ instance MethodName (AES CTR KEY192) where
 -- | IANA standard name for AES256 CTR
 instance MethodName (AES CTR KEY256) where
   methodName _ = "aes256-ctr"
+
+instance MethodName DHOakley1 where
+  methodName _ = "diffie-hellman-group1"
+
+instance MethodName DHOakley14 where
+  methodName _ = "diffie-hellman-group14"
+
+instance MethodName (RSA Word1024 SHA1 PKCS SignMode) where
+  methodName _ = "ssh-rsa"
+
 
 sha1 :: SHA1
 sha1 = undefined

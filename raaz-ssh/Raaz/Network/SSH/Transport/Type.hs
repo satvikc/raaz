@@ -12,12 +12,11 @@ import Control.Exception
 import Foreign.Ptr              (castPtr)
 import Foreign.Storable         (peek,poke)
 
-import Raaz.Memory
-import Raaz.Primitives
-import Raaz.Primitives.Cipher
+import Raaz.Core.Memory
+import Raaz.Core.Primitives
 import Raaz.Random
-import Raaz.Types
-import Raaz.Util.Ptr
+import Raaz.Core.Types
+import Raaz.Core.Util.Ptr
 
 
 import Raaz.Network.SSH.Backend
