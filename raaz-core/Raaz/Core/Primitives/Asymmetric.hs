@@ -15,11 +15,11 @@ module Raaz.Core.Primitives.Asymmetric
        , sign, sign', verify, verify'
        ) where
 
-import Control.Applicative ()
-import System.IO.Unsafe    ()
+import Control.Applicative
+import System.IO.Unsafe
 
 import Raaz.Core.Primitives
-import Raaz.Core.ByteSource ()
+import Raaz.Core.ByteSource
 import Raaz.Core.Serialize
 
 -- | This class captures primitives which support generation of
